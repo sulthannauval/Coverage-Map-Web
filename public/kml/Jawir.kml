@@ -2,17 +2,18 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>Network 1</name>
+	<open>1</open>
 	<Style id="site">
 		<IconStyle>
 			<Icon>
-				<href>site.png</href>
+				<href>/Users/limeramadhan/Library/Application Support/Google Earth/site.png</href>
 			</Icon>
 		</IconStyle>
 	</Style>
 	<ScreenOverlay>
 		<name>Legend</name>
 		<Icon>
-			<href>legend.png</href>
+			<href>/Users/limeramadhan/Library/Application Support/Google Earth/legend.png</href>
 		</Icon>
 		<overlayXY x="0" y="1" xunits="fraction" yunits="fraction"/>
 		<screenXY x="0" y="1" xunits="fraction" yunits="fraction"/>
@@ -23,7 +24,7 @@
 		<name>Field strength (DL)</name>
 		<color>aaffffff</color>
 		<Icon>
-			<href>coverage.png</href>
+			<href>/Users/limeramadhan/Library/Application Support/Google Earth/coverage.png</href>
 		</Icon>
 		<LatLonBox>
 			<north>-5.00339434502215</north>

@@ -52,7 +52,7 @@
         mymap.zoomControl.setPosition('bottomright');
 
         // Tambahkan file KML dari direktori public/kml
-        var kmlLayer = omnivore.kml('/kml/Tx Jawa.kml') // Ganti dengan nama file kml yang benar
+        var kmlLayer = omnivore.kml('/kml/Jawir.kml') // Ganti dengan nama file kml yang benar
             .on('ready', function() {
                 mymap.fitBounds(kmlLayer.getBounds()); // Zoom otomatis sesuai area KML
             })
