@@ -1,0 +1,1191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Network 1</name>
+	<Style id="site">
+		<IconStyle>
+			<Icon>
+				<href>http://127.0.0.1:8000/kml/site.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<ScreenOverlay>
+		<name>Legend</name>
+		<Icon>
+			<href>http://127.0.0.1:8000/kml/legend.png</href>
+		</Icon>
+		<overlayXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+	<GroundOverlay>
+		<name>Field strength (DL)</name>
+		<color>aaffffff</color>
+		<Icon>
+			<href>http://127.0.0.1:8000/kml/coverage.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>-5.00339434502215</north>
+			<south>-9.275622176792099</south>
+			<east>115.224609375</east>
+			<west>105.029296875</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<Folder>
+		<name>JawaBarat1</name>
+		<Placemark>
+			<name>JawaBarat1</name>
+			<description>Site elevation: 1261,1 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>107.560506216735,-6.814912563150209,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							107.560506216735,-6.814912563150209,1 107.559601512283,-6.81335663458529,1 107.560014492071,-6.81309038050259,1 107.560506216735,-6.812981185257231,1 107.560997941399,-6.81309038050259,1 107.561410921187,-6.81335663458529,1 107.560506216735,-6.814912563150209,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat2</name>
+		<Placemark>
+			<name>JawaBarat2</name>
+			<description>Site elevation: 1526,5 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>107.881617146396,-7.303741227955341,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							107.881617146396,-7.303741227955341,1 107.880711485802,-7.302185299329409,1 107.88112490207,-7.3019190452897,1 107.881617146396,-7.30180985006236,1 107.882109390722,-7.3019190452897,1 107.88252280699,-7.302185299329409,1 107.881617146396,-7.303741227955341,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat3</name>
+		<Placemark>
+			<name>JawaBarat3</name>
+			<description>Site elevation: 6,6 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>108.548226,-6.686004999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							108.548226,-6.686004999999999,1 108.547321536389,-6.68444907145114,1 108.547734406232,-6.684182817357129,1 108.548226,-6.684073622107021,1 108.548717593768,-6.684182817357129,1 108.549130463611,-6.68444907145114,1 108.548226,-6.686004999999999,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat4</name>
+		<Placemark>
+			<name>JawaBarat4</name>
+			<description>Site elevation: 672,8 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>108.475064412139,-6.95197188957224,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							108.475064412139,-6.95197188957224,1 108.474159446449,-6.95041596099022,1 108.474572545492,-6.950149706919581,1 108.475064412139,-6.950040511679259,1 108.475556278786,-6.950149706919581,1 108.475969377829,-6.95041596099022,1 108.475064412139,-6.95197188957224,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat5</name>
+		<Placemark>
+			<name>JawaBarat5</name>
+			<description>Site elevation: 485,7 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>108.533044017061,-7.23850084208965,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							108.533044017061,-7.23850084208965,1 108.532138488006,-7.23694491347187,1 108.532551844226,-7.23667865942642,1 108.533044017061,-7.236569464196669,1 108.533536189896,-7.23667865942642,1 108.533949546116,-7.23694491347187,1 108.533044017061,-7.23850084208965,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat6</name>
+		<Placemark>
+			<name>JawaBarat6</name>
+			<description>Site elevation: 559,6 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>108.237937882849,-7.477284438671171,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							108.237937882849,-7.477284438671171,1 108.237031866449,-7.47572851002355,1 108.237445445142,-7.475462255999129,1 108.237937882849,-7.47535306077819,1 108.238430320556,-7.475462255999129,1 108.238843899249,-7.47572851002355,1 108.237937882849,-7.477284438671171,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat7</name>
+		<Placemark>
+			<name>JawaBarat7</name>
+			<description>Site elevation: 727,0 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>106.836015109361,-6.91353939635685,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							106.836015109361,-6.91353939635685,1 106.835110217462,-6.91198346777963,1 106.835523282819,-6.911717213705599,1 106.836015109361,-6.91160801846387,1 106.836506935903,-6.911717213705599,1 106.83692000126,-6.91198346777963,1 106.836015109361,-6.91353939635685,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat8</name>
+		<Placemark>
+			<name>JawaBarat8</name>
+			<description>Site elevation: 804,7 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>106.596715,-7.120822999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							106.596715,-7.120822999999999,1 106.595809705144,-7.11926707139691,1 106.596222954452,-7.11900081734111,1 106.596715,-7.118891622107021,1 106.597207045548,-7.11900081734111,1 106.597620294856,-7.11926707139691,1 106.596715,-7.120822999999999,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat9</name>
+		<Placemark>
+			<name>JawaBarat9</name>
+			<description>Site elevation: 996,1 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>107.659707,-6.729223,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							107.659707,-6.729223,1 107.658802456168,-6.72766707144576,1 107.659215362632,-6.72740081735554,1 107.659707,-6.72729162210702,1 107.660198637368,-6.72740081735554,1 107.660611543832,-6.72766707144576,1 107.659707,-6.729223,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaBarat10</name>
+		<Placemark>
+			<name>JawaBarat10</name>
+			<description>Site elevation: 787,5 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>107.960325852612,-6.792973019958199,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							107.960325852612,-6.792973019958199,1 107.959421189482,-6.79141709139601,1 107.959834150406,-6.79115083731139,1 107.960325852612,-6.79104164206522,1 107.960817554818,-6.79115083731139,1 107.961230515742,-6.79141709139601,1 107.960325852612,-6.792973019958199,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah1</name>
+		<Placemark>
+			<name>JawaTengah1</name>
+			<description>Site elevation: 261,3 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>110.423369,-7.041566,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							110.423369,-7.041566,1 110.42246386066,-7.04001007140681,1 110.422877038975,-7.039743817344029,1 110.423369,-7.03963462210702,1 110.423860961025,-7.039743817344029,1 110.42427413934,-7.04001007140681,1 110.423369,-7.041566,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah2</name>
+		<Placemark>
+			<name>JawaTengah2</name>
+			<description>Site elevation: 251,3 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>111.438854,-7.058261999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							111.438854,-7.058261999999999,1 111.437948828048,-7.05670607140472,1 111.43836202125,-7.05643981734342,1 111.438854,-7.056330622107021,1 111.43934597875,-7.05643981734342,1 111.439759171952,-7.05670607140472,1 111.438854,-7.058261999999999,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah3</name>
+		<Placemark>
+			<name>JawaTengah3</name>
+			<description>Site elevation: 396,4 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>109.240043,-7.069889,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							109.240043,-7.069889,1 109.239137805291,-7.06833307140327,1 109.239551008882,-7.06806681734299,1 109.240043,-7.06795762210702,1 109.240534991118,-7.06806681734299,1 109.240948194709,-7.06833307140327,1 109.240043,-7.069889,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah4</name>
+		<Placemark>
+			<name>JawaTengah4</name>
+			<description>Site elevation: 1454,3 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>110.39187,-7.355444,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							110.39187,-7.355444,1 110.390964234301,-7.35388807136761,1 110.391377698549,-7.353621817332461,1 110.39187,-7.35351262210702,1 110.392362301451,-7.353621817332461,1 110.392775765699,-7.35388807136761,1 110.39187,-7.355444,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah5</name>
+		<Placemark>
+			<name>JawaTengah5</name>
+			<description>Site elevation: 55,4 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>110.487056,-7.0390531,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							110.487056,-7.0390531,1 110.486150865562,-7.03749717140712,1 110.486564041639,-7.037230917344131,1 110.487056,-7.03712172210702,1 110.487547958361,-7.037230917344131,1 110.487961134438,-7.03749717140712,1 110.487056,-7.0390531,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah6</name>
+		<Placemark>
+			<name>JawaTengah6</name>
+			<description>Site elevation: 899,2 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>108.855157,-7.204749,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							108.855157,-7.204749,1 108.85425153852,-7.20319307138644,1 108.854664863892,-7.202926817338021,1 108.855157,-7.20281762210702,1 108.855649136108,-7.202926817338021,1 108.85606246148,-7.20319307138644,1 108.855157,-7.204749,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah7</name>
+		<Placemark>
+			<name>JawaTengah7</name>
+			<description>Site elevation: 328,9 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>109.253669,-7.556388999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							109.253669,-7.556388999999999,1 109.252762818564,-7.55483307134249,1 109.253176472596,-7.55456681732503,1 109.253669,-7.554457622107021,1 109.254161527404,-7.55456681732503,1 109.254575181436,-7.55483307134249,1 109.253669,-7.556388999999999,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah8</name>
+		<Placemark>
+			<name>JawaTengah8</name>
+			<description>Site elevation: 1425,0 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>110.029235,-7.351379,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							110.029235,-7.351379,1 110.028329242592,-7.349823071368119,1 110.028742703055,-7.349556817332599,1 110.029235,-7.34944762210702,1 110.029727296945,-7.349556817332599,1 110.030140757408,-7.349823071368119,1 110.029235,-7.351379,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTengah9</name>
+		<Placemark>
+			<name>JawaTengah9</name>
+			<description>Site elevation: 51,0 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>109.913359983014,-7.71065761942993,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							109.913359983014,-7.71065761942993,1 109.912453474583,-7.709101690753121,1 109.912867277888,-7.70883543674926,1 109.913359983014,-7.70872624153695,1 109.91385268814,-7.70883543674926,1 109.914266491445,-7.709101690753121,1 109.913359983014,-7.71065761942993,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur1</name>
+		<Placemark>
+			<name>JawaTimur1</name>
+			<description>Site elevation: 24,3 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>112.714062,-7.289489,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							112.714062,-7.289489,1 112.713156368245,-7.287933071375849,1 112.713569771348,-7.287666817334891,1 112.714062,-7.28755762210702,1 112.714554228652,-7.287666817334891,1 112.714967631755,-7.287933071375849,1 112.714062,-7.289489,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur2</name>
+		<Placemark>
+			<name>JawaTimur2</name>
+			<description>Site elevation: 1233,6 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>113.133667,-7.946633,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							113.133667,-7.946633,1 113.132759978199,-7.945077071293639,1 113.133174015857,-7.944810817310599,1 113.133667,-7.94470162210702,1 113.134159984143,-7.944810817310599,1 113.134574021801,-7.945077071293639,1 113.133667,-7.946633,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur3</name>
+		<Placemark>
+			<name>JawaTimur3</name>
+			<description>Site elevation: 298,2 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>113.577819,-7.057559,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							113.577819,-7.057559,1 113.576913829423,-7.056003071404811,1 113.577327021997,-7.05573681734344,1 113.577819,-7.05562762210702,1 113.578310978003,-7.05573681734344,1 113.578724170577,-7.056003071404811,1 113.577819,-7.057559,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur4</name>
+		<Placemark>
+			<name>JawaTimur4</name>
+			<description>Site elevation: 129,5 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>114.250969,-8.329554,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							114.250969,-8.329554,1 114.25006111111,-8.327998071245609,1 114.250475544593,-8.32773181729641,1 114.250969,-8.32762262210702,1 114.251462455407,-8.32773181729641,1 114.25187688889,-8.327998071245609,1 114.250969,-8.329554,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur5</name>
+		<Placemark>
+			<name>JawaTimur5</name>
+			<description>Site elevation: 1012,8 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>111.855111,-7.863764,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							111.855111,-7.863764,1 111.854204160301,-7.86220807130402,1 111.85461811483,-7.861941817313671,1 111.855111,-7.86183262210702,1 111.85560388517,-7.861941817313671,1 111.856017839699,-7.86220807130402,1 111.855111,-7.863764,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur6</name>
+		<Placemark>
+			<name>JawaTimur6</name>
+			<description>Site elevation: 442,4 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>112.011337,-7.015447000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							112.011337,-7.015447000000001,1 112.010431911519,-7.01389107141007,1 112.010845066617,-7.013624817345,1 112.011337,-7.01351562210702,1 112.011828933383,-7.013624817345,1 112.012242088481,-7.01389107141007,1 112.011337,-7.015447000000001,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur7</name>
+		<Placemark>
+			<name>JawaTimur7</name>
+			<description>Site elevation: 618,0 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>111.79842,-7.467496000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							111.79842,-7.467496000000001,1 111.797514003897,-7.46594007135361,1 111.797927573325,-7.46567381732832,1 111.79842,-7.46556462210702,1 111.798912426675,-7.46567381732832,1 111.799325996103,-7.46594007135361,1 111.79842,-7.467496000000001,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur8</name>
+		<Placemark>
+			<name>JawaTimur8</name>
+			<description>Site elevation: 1881,0 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>111.191876,-7.667043999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							111.191876,-7.667043999999999,1 111.190969584705,-7.66548807132865,1 111.191383345493,-7.66522181732095,1 111.191876,-7.665112622107021,1 111.192368654507,-7.66522181732095,1 111.192782415295,-7.66548807132865,1 111.191876,-7.667043999999999,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>JawaTimur9</name>
+		<Placemark>
+			<name>JawaTimur9</name>
+			<description>Site elevation: 527,3 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>111.160676,-8.181183000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							111.160676,-8.181183000000001,1 111.159768452089,-8.17962707126423,1 111.160182729916,-8.179360817301919,1 111.160676,-8.179251622107021,1 111.161169270084,-8.179360817301919,1 111.161583547911,-8.17962707126423,1 111.160676,-8.181183000000001,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Yogyakarta</name>
+		<Placemark>
+			<name>Yogyakarta</name>
+			<description>Site elevation: 143,8 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>110.362837,-7.765274,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							110.362837,-7.765274,1 110.361930374169,-7.763718071316351,1 110.362344231067,-7.76345181731731,1 110.362837,-7.76334262210702,1 110.363329768933,-7.76345181731731,1 110.363743625831,-7.763718071316351,1 110.362837,-7.765274,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Banten1</name>
+		<Placemark>
+			<name>Banten1</name>
+			<description>Site elevation: 114,2 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>106.045133424305,-5.98509256799303,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							106.045133424305,-5.98509256799303,1 106.044230188054,-5.98353663953138,1 106.044642497603,-5.983270385375929,1 106.045133424305,-5.983161190100049,1 106.045624351007,-5.983270385375929,1 106.046036660556,-5.98353663953138,1 106.045133424305,-5.98509256799303,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Banten2</name>
+		<Placemark>
+			<name>Banten2</name>
+			<description>Site elevation: 280,5 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>105.985923,-6.382133999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							105.985923,-6.382133999999999,1 105.985019085515,-6.38057807148898,1 105.985431704681,-6.38031181736831,1 105.985923,-6.380202622107021,1 105.986414295319,-6.38031181736831,1 105.986826914485,-6.38057807148898,1 105.985923,-6.382133999999999,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Banten3</name>
+		<Placemark>
+			<name>Banten3</name>
+			<description>Site elevation: 151,1 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>106.25659,-6.943254,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							106.25659,-6.943254,1 106.255685051085,-6.94169807141907,1 106.256098142471,-6.94143181734766,1 106.25659,-6.941322622107019,1 106.257081857529,-6.94143181734766,1 106.257494948915,-6.94169807141907,1 106.25659,-6.943254,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Jakarta</name>
+		<Placemark>
+			<name>Jakarta</name>
+			<description>Site elevation: 20,9 m</description>
+			<styleUrl>#site</styleUrl>
+			<Point>
+				<coordinates>106.725826,-6.22066,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sector: 0°</name>
+			<description>EIRP: 85 dBm</description>
+			<Style>
+				<LineStyle>
+					<color>ff000000</color>
+					<width>2</width>
+				</LineStyle>
+				<PolyStyle>
+					<color>88ff0000</color>
+					<fill>1</fill>
+				</PolyStyle>
+			</Style>
+			<Polygon>
+				<altitudeMode>absolute</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							106.725826,-6.22066,1 106.724922366706,-6.21910407150907,1 106.725334857507,-6.21883781737424,1 106.725826,-6.21872862210702,1 106.726317142493,-6.21883781737424,1 106.726729633294,-6.21910407150907,1 106.725826,-6.22066,1 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

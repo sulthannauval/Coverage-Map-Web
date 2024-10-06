@@ -30,6 +30,11 @@
 <body>
     <!-- Peta -->
     <div id="mapid"></div>
+    
+    <!-- Legend -->
+    <div id="legend" style="position: absolute; bottom: 30px; left: 10px; background: white; padding: 10px; z-index: 1000;">
+    <img src="/kml/legend.png" alt="Legend" style="width: 150px;"/>
+    </div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -44,7 +49,6 @@
 
         // Tambahkan citra satelit dari ESRI World Imagery
         L.esri.basemapLayer('Imagery').addTo(mymap);
-
         // Tambahkan label opsional untuk nama kota atau jalan
         L.esri.basemapLayer('ImageryLabels').addTo(mymap);
 
@@ -52,11 +56,27 @@
         mymap.zoomControl.setPosition('bottomright');
 
         // Tambahkan file KML dari direktori public/kml
-        var kmlLayer = omnivore.kml('/kml/Jawir.kml') // Ganti dengan nama file kml yang benar
+        var kmlLayer = omnivore.kml('/kml/Coverage-Jawa.kml') // Path file KML
             .on('ready', function() {
-                mymap.fitBounds(kmlLayer.getBounds()); // Zoom otomatis sesuai area KML
+                // mymap.fitBounds(kmlLayer.getBounds());
+
+                // Menambahkan gambar overlay setelah KML dimuat
+                var bounds = [[-5.00339434502215, 115.224609375], [-9.275622176792099, 105.029296875]]; // Sesuaikan dengan koordinat gambar
+                L.imageOverlay('/kml/coverage.png', bounds).addTo(mymap); // Tambahkan overlay gambar
+            })
+            .on('error', function(e) {
+                console.error("Error loading KML: ", e);
             })
             .addTo(mymap);
+
+        // Mengikat pop-up ke setiap layer di KML
+        kmlLayer.on('ready', function() {
+            kmlLayer.eachLayer(function(layer) {
+                var name = layer.feature.properties.name || "No Name";
+                var description = layer.feature.properties.description || "No Description";
+                layer.bindPopup('<b>' + name + '</b><br>' + description);
+            });
+        });
     </script>
 </body>
 </html>
