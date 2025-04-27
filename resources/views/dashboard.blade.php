@@ -136,10 +136,11 @@
                             </a>
                         </div>
                         <div class="col" style="padding: 0%;">
-                            <div type="button" class="adminbtn" id="admin_btn">
-                                
-                                <i class="ri-account-circle-fill"></i>
-                            </div>
+                            <a href="{{ \url('login') }}">
+                                <div type="button" class="adminbtn" id="admin_btn">
+                                    <i class="ri-account-circle-fill"></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
