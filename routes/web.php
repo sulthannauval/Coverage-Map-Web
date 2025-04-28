@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,21 @@ Route::get('/map', function () {
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
-Route::get('/login', function () {
-    return view('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+
+Route::get('/admin', function () {
+    if (!session('id_admin')) {
+        return redirect('/login')->withErrors([
+            'login' => 'Silakan login terlebih dahulu.'
+        ]);
+    }
+
+    return view('admin');
+})->name('admin');
+
+Route::get('/logout', function () {
+    session()->flush();
+    return redirect('/login')->with('status', 'Berhasil logout.');
 });
