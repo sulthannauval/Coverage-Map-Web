@@ -119,7 +119,7 @@
 
                     // Menambahkan gambar overlay setelah KML dimuat
                     var bounds = [[-5.00339434502215, 115.224609375], [-9.275622176792099, 105.029296875]]; // Sesuaikan dengan koordinat gambar
-                    // L.imageOverlay('/kml/coverage.png', bounds).addTo(mymap); // Tambahkan overlay gambar
+                    L.imageOverlay('/kml/coverage.png', bounds).addTo(mymap); // Tambahkan overlay gambar
 
                     // Bind popup dengan nama dan deskripsi dari KML
                     var name = layer.feature.properties.name || "No Name";
