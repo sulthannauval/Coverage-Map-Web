@@ -97,3 +97,8 @@ Route::get('/adminhistory', function () {
 })->name('admin');
 
 Route::get('/admin', [DataPemancarController::class, 'index']);
+
+Route::get('/logout', function () {
+    session()->flush();
+    return redirect('/login')->with('status', 'Berhasil logout.');
+});
