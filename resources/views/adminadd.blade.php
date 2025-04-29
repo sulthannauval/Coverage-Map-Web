@@ -10,7 +10,7 @@
     rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    @vite(['public/css/admin.css', 'public/js/admin.js'])
+        @vite(['public/css/adminadd.css', 'public/js/adminadd.js'])
 </head>
 
 <body>
@@ -26,13 +26,13 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link-select">
+                    <a href="/admin" class="sidebar-link">
                         <i class="ri-home-fill"></i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/adminadd" class="sidebar-link">
+                    <a href="#" class="sidebar-link-select">
                         <i class="ri-add-circle-fill"></i>
                         <span>Add</span>
                     </a>
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="adminhistory" class="sidebar-link">
+                    <a href="/adminhistory" class="sidebar-link">
                         <i class="ri-history-fill"></i>
                         <span>History</span>
                     </a>
@@ -60,30 +60,35 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Home
+                    Add
                 </h1>
-                <br>
             </div>
-            <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <td>No.</td>
-                        <td>Nama Pemancar</td>
-                        <td>Provinsi</td>
-                        <td>Latitude</td>
-                        <td>Longitude</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>TVRI Joglo</td>
-                        <td>DKI Jakarta</td>
-                        <td>-6.22076944</td>
-                        <td>106.72581944</td>
-                    </tr>
-                </tbody>
-                </table>
+            <div class="col-sm-10">
+                <div class="m-3">
+                    <p>Nama:</p>
+                    <input type="text">
+
+                    <p><br>Longitude:</p>
+                    <input type="text" placeholder="000.000000">
+
+                    <p><br>Latitude:</p>
+                    <input type="text" placeholder="-0.000000">
+
+                    <p><br>Titik Elevasi</p>
+                    <input type="number">
+
+                    <p><br>Provinsi</p>
+                    <input type="text">
+                </div>
+                <div class="p-3 row">
+                    <div class="col-sm-2">
+                        <button class="btnsubmit">Submit</button>
+                    </div>
+                    <div class="col-sm-2 mt-3 mt-lg-0 mt-md-0 ml-sm-5 mt-sm-0">
+                        <button id="btnbatal">Batal</button>
+                    </div>  
+                </div>              
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
