@@ -55,14 +55,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../Edit/Editnew.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <i class="ri-phone-fill"></i>
                         <span>Contact</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="{{ \url('') }}#" class="sidebar-link">
+                <a href="/" class="sidebar-link">
                     <i class="ri-logout-box-line"></i>
                     <span>Exit</span>
                 </a>
