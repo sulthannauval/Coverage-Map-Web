@@ -51,7 +51,7 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="/dashboard" class="sidebar-link">
+                <a href="/" class="sidebar-link">
                     <i class="ri-logout-box-line"></i>
                     <span>Logout</span>
                 </a>
