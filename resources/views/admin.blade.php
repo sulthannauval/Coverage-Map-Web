@@ -75,15 +75,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>TVRI Joglo</td>
-                        <td>DKI Jakarta</td>
-                        <td>-6.22076944</td>
-                        <td>106.72581944</td>
-                    </tr>
-                </tbody>
+                    @foreach($pemancars as $pemancar)
+                        <tr>
+                            <td>{{ $pemancar->id_pemancar }}</td>
+                            <td>{{ $pemancar->nama_pemancar }}</td>
+                            <td>{{ $pemancar->provinsi }}</td>
+                            <td>{{ $pemancar->latitude }}</td>
+                            <td>{{ $pemancar->longitude }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
                 </table>
+                <!-- Pagination Links -->
+                <div class="d-flex justify-content-center">
+                {{ $pemancars->links() }}
+                </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
