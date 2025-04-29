@@ -26,7 +26,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link-select">
+                    <a href="/admin" class="sidebar-link">
                         <i class="ri-home-fill"></i>
                         <span>Home</span>
                     </a>
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/adminedit" class="sidebar-link">
+                    <a href="#" class="sidebar-link-select">
                         <i class="ri-edit-box-line"></i>
                         <span>Edit</span>
                     </a>
@@ -81,6 +81,10 @@
                         <td>DKI Jakarta</td>
                         <td>-6.22076944</td>
                         <td>106.72581944</td>
+                        <td>
+                            <a href="/adminediting" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
                     </tr>
                 </tbody>
                 </table>

@@ -50,3 +50,43 @@ Route::get('/logout', function () {
     session()->flush();
     return redirect('/login')->with('status', 'Berhasil logout.');
 });
+
+Route::get('/adminadd', function () {
+    if (!session('id_admin')) {
+        return redirect('/login')->withErrors([
+            'login' => 'Silakan login terlebih dahulu.'
+        ]);
+    }
+
+    return view('adminadd');
+})->name('admin');
+
+Route::get('/adminedit', function () {
+    if (!session('id_admin')) {
+        return redirect('/login')->withErrors([
+            'login' => 'Silakan login terlebih dahulu.'
+        ]);
+    }
+
+    return view('adminedit');
+})->name('admin');
+
+Route::get('/adminediting', function () {
+    if (!session('id_admin')) {
+        return redirect('/login')->withErrors([
+            'login' => 'Silakan login terlebih dahulu.'
+        ]);
+    }
+
+    return view('adminediting');
+})->name('admin');
+
+Route::get('/adminhistory', function () {
+    if (!session('id_admin')) {
+        return redirect('/login')->withErrors([
+            'login' => 'Silakan login terlebih dahulu.'
+        ]);
+    }
+
+    return view('adminhistory');
+})->name('admin');
