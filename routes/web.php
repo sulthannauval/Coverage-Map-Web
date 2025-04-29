@@ -27,6 +27,10 @@ Route::get('/map', function () {
 });
 
 Route::get('/login', function () {
+    if (session('id_admin')) {
+        // Jika session id_admin ada, langsung redirect ke admin
+        return redirect()->route('admin');
+    }
     return view('login');
 })->name('login');
 
