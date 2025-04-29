@@ -62,6 +62,10 @@ Route::get('/adminadd', function () {
     return view('adminadd');
 })->name('admin');
 
+Route::get('/adminadd', [DataPemancarController::class, 'create'])->name('pemancar.create');
+Route::post('/adminadd', [DataPemancarController::class, 'store'])->name('pemancar.store');
+
+
 Route::get('/adminedit', function () {
     if (!session('id_admin')) {
         return redirect('/login')->withErrors([

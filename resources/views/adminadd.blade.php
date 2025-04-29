@@ -64,30 +64,49 @@
                 </h1>
             </div>
             <div class="col-sm-10">
-                <div class="m-3">
-                    <p>Nama:</p>
-                    <input type="text">
-
-                    <p><br>Longitude:</p>
-                    <input type="text" placeholder="000.000000">
-
-                    <p><br>Latitude:</p>
-                    <input type="text" placeholder="-0.000000">
-
-                    <p><br>Titik Elevasi</p>
-                    <input type="number">
-
-                    <p><br>Provinsi</p>
-                    <input type="text">
+            <!-- Tampilkan pesan sukses -->
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
                 </div>
+            @endif
+
+            <!-- Tampilkan pesan error validasi -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Terjadi kesalahan:</strong>
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form method="POST" action="{{ route('pemancar.store') }}">
+                @csrf
+                <div class="m-3">
+                    <p>Nama Pemancar:</p>
+                    <input type="text" name="nama_pemancar" class="form-control" required>
+
+                    <p class="mt-3">Provinsi:</p>
+                    <input type="text" name="provinsi" class="form-control" required>
+
+                    <p class="mt-3">Latitude:</p>
+                    <input type="text" name="latitude" class="form-control" placeholder="-0.000000" required>
+
+                    <p class="mt-3">Longitude:</p>
+                    <input type="text" name="longitude" class="form-control" placeholder="000.000000" required>
+                </div>
+
                 <div class="p-3 row">
                     <div class="col-sm-2">
-                        <button class="btnsubmit">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                     <div class="col-sm-2 mt-3 mt-lg-0 mt-md-0 ml-sm-5 mt-sm-0">
-                        <button id="btnbatal">Batal</button>
+                        <a href="/admin" class="btn btn-secondary">Batal</a>
                     </div>  
-                </div>              
+                </div>
+            </form>
             </div>
         </div>
     </div>

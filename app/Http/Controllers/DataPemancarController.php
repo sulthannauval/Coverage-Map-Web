@@ -21,16 +21,22 @@ class DataPemancarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_pemancar' => 'required',
-            'provinsi' => 'required',
+            'nama_pemancar' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:255',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'pembaruan_terakhir' => 'required|date',
         ]);
 
-        DataPemancar::create($request->all());
+        // Simpan ke database, tanpa pembaruan_terakhir (diisi otomatis oleh MySQL)
+        DataPemancar::create([
+            'nama_pemancar' => $request->nama_pemancar,
+            'provinsi' => $request->provinsi,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
 
-        return redirect()->route('admin')->with('success', 'Data berhasil ditambahkan.');
+        // Redirect kembali dengan pesan sukses
+        return redirect()->back()->with('success', 'Data pemancar berhasil ditambahkan.');
     }
 
     public function show($id)
