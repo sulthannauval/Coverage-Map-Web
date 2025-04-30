@@ -67,6 +67,11 @@
                 </h1>
                 <br>
             </div>
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ route('pemancar.export') }}" class="btn btn-primary">
+                    Download CSV
+                </a>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
