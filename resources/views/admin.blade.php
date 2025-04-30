@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"/>
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+        rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     @vite(['public/css/admin.css', 'public/js/admin.js'])
@@ -44,17 +44,20 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="adminhistory" class="sidebar-link">
+                    <a href="/adminhistory" class="sidebar-link">
                         <i class="ri-history-fill"></i>
                         <span>History</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="/logout" class="sidebar-link">
-                    <i class="ri-logout-box-line"></i>
-                    <span>Logout</span>
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="sidebar-link" style="border: none; background: none;">
+                        <i class="ri-logout-box-line"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
             </div>
         </aside>
         <div class="main p-3">
@@ -65,7 +68,7 @@
                 <br>
             </div>
             <table class="table table-hover">
-                    <thead>
+                <thead>
                     <tr>
                         <td>No.</td>
                         <td>Nama Pemancar</td>
@@ -73,23 +76,23 @@
                         <td>Latitude</td>
                         <td>Longitude</td>
                     </tr>
-                    </thead>
-                    <tbody>
+                </thead>
+                <tbody>
                     @foreach($pemancars as $pemancar)
-                        <tr>
-                            <td>{{ $pemancar->id_pemancar }}</td>
-                            <td>{{ $pemancar->nama_pemancar }}</td>
-                            <td>{{ $pemancar->provinsi }}</td>
-                            <td>{{ $pemancar->latitude }}</td>
-                            <td>{{ $pemancar->longitude }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ $pemancar->id_pemancar }}</td>
+                        <td>{{ $pemancar->nama_pemancar }}</td>
+                        <td>{{ $pemancar->provinsi }}</td>
+                        <td>{{ $pemancar->latitude }}</td>
+                        <td>{{ $pemancar->longitude }}</td>
+                    </tr>
                     @endforeach
-                    </tbody>
-                </table>
-                <!-- Pagination Links -->
-                <div class="d-flex justify-content-center">
+                </tbody>
+            </table>
+            <!-- Pagination Links -->
+            <div class="d-flex justify-content-center">
                 {{ $pemancars->links() }}
-                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -97,4 +100,5 @@
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

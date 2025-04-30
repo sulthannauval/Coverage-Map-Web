@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"/>
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+        rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     @vite(['public/css/admin.css', 'public/js/admin.js'])
@@ -65,7 +65,7 @@
                 <br>
             </div>
             <table class="table table-hover">
-                    <thead>
+                <thead>
                     <tr>
                         <td>No.</td>
                         <td>Nama Pemancar</td>
@@ -73,21 +73,36 @@
                         <td>Latitude</td>
                         <td>Longitude</td>
                     </tr>
-                    </thead>
-                    <tbody>
+                </thead>
+                <tbody>
+                    @foreach($pemancars as $pemancar)
                     <tr>
-                        <td>1</td>
-                        <td>TVRI Joglo</td>
-                        <td>DKI Jakarta</td>
-                        <td>-6.22076944</td>
-                        <td>106.72581944</td>
+                        <td>{{ $pemancar->id_pemancar }}</td>
+                        <td>{{ $pemancar->nama_pemancar }}</td>
+                        <td>{{ $pemancar->provinsi }}</td>
+                        <td>{{ $pemancar->latitude }}</td>
+                        <td>{{ $pemancar->longitude }}</td>
                         <td>
-                            <a href="/adminediting" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            <!-- Edit button linking to edit route with ID -->
+                            <a href="{{ url('/adminediting/' . $pemancar->id_pemancar) }}" class="btn btn-primary btn-sm">Edit</a>
+
+                            <!-- Delete button inside a form -->
+                            <form action="{{ url('/admindelete/' . $pemancar->id_pemancar) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apa kamu yakin ingin menghapusnya?');">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
+                        @endforeach
                     </tr>
                 </tbody>
-                </table>
+            </table>
+            <!-- Pagination Links -->
+            <div class="d-flex justify-content-center">
+                {{ $pemancars->links() }}
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -95,4 +110,5 @@
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

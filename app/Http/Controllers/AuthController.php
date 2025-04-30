@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -32,12 +33,13 @@ class AuthController extends Controller
 
         if ($admin && md5($password) == $admin->password) {
             // Jika password cocok
-            session([
+            /* session([
                 'id_admin' => $admin->id_admin,
                 'nama' => $admin->nama,
                 'username' => $admin->username,
                 'email' => $admin->email,
-            ]);
+            ]); */
+            Auth::guard('admin')->login($admin);
             return redirect('/admin');
         }
 

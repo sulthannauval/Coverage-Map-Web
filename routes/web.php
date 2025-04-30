@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataPemancarController;
+use Illuminate\Support\Facades\Auth;
+use App\Models\DataPemancar;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,77 +30,37 @@ Route::get('/map', function () {
 });
 
 Route::get('/login', function () {
-    if (session('id_admin')) {
+    /* if (session('id_admin')) {
         // Jika session id_admin ada, langsung redirect ke admin
         return redirect()->route('admin');
+    } */
+    if (Auth::guard('admin')->check()) { // Gunakan Auth::check() untuk mengecek apakah admin sudah login
+        return redirect()->route('admin'); // Redirect ke admin jika sudah login
     }
     return view('login');
 })->name('login');
 
 Route::post('/login', [AuthController::class, 'authenticate']);
 
-Route::get('/admin', function () {
-    if (!session('id_admin')) {
-        return redirect('/login')->withErrors([
-            'login' => 'Silakan login terlebih dahulu.'
-        ]);
-    }
-
-    return view('admin');
-})->name('admin');
-
-Route::get('/logout', function () {
+Route::post('/logout', function () {
+    Auth::guard('admin')->logout();
     session()->flush();
     return redirect('/login')->with('status', 'Berhasil logout.');
-});
-
-Route::get('/adminadd', function () {
-    if (!session('id_admin')) {
-        return redirect('/login')->withErrors([
-            'login' => 'Silakan login terlebih dahulu.'
-        ]);
-    }
-
-    return view('adminadd');
-})->name('admin');
-
-Route::get('/adminadd', [DataPemancarController::class, 'create'])->name('pemancar.create');
-Route::post('/adminadd', [DataPemancarController::class, 'store'])->name('pemancar.store');
+})->name('logout');
 
 
-Route::get('/adminedit', function () {
-    if (!session('id_admin')) {
-        return redirect('/login')->withErrors([
-            'login' => 'Silakan login terlebih dahulu.'
-        ]);
-    }
+Route::middleware(['adminauth'])->group(function () {
+    Route::get('/admin', [DataPemancarController::class, 'index'])->name('admin');
 
-    return view('adminedit');
-})->name('admin');
+    Route::get('/adminadd', [DataPemancarController::class, 'create'])->name('pemancar.create');
+    Route::post('/adminadd', [DataPemancarController::class, 'store'])->name('pemancar.store');
 
-Route::get('/adminediting', function () {
-    if (!session('id_admin')) {
-        return redirect('/login')->withErrors([
-            'login' => 'Silakan login terlebih dahulu.'
-        ]);
-    }
+    Route::get('/adminedit', [DataPemancarController::class, 'indexEdit'])->name('adminedit');
 
-    return view('adminediting');
-})->name('admin');
+    Route::get('/adminediting', fn() => view('adminediting'))->name('adminediting');
+    Route::get('/adminediting/{id}', [DataPemancarController::class, 'edit']);
+    Route::delete('/admindelete/{id}', [DataPemancarController::class, 'destroy']);
+    Route::put('/adminupdate/{id}', [DataPemancarController::class, 'update']);
 
-Route::get('/adminhistory', function () {
-    if (!session('id_admin')) {
-        return redirect('/login')->withErrors([
-            'login' => 'Silakan login terlebih dahulu.'
-        ]);
-    }
-
-    return view('adminhistory');
-})->name('admin');
-
-Route::get('/admin', [DataPemancarController::class, 'index']);
-
-Route::get('/logout', function () {
-    session()->flush();
-    return redirect('/login')->with('status', 'Berhasil logout.');
+    Route::get('/adminhistory', fn() => view('adminhistory'))->name('adminhistory');
 });
