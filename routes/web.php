@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataPemancarController;
 use Illuminate\Support\Facades\Auth;
-use App\Models\DataPemancar;
+use App\Http\Controllers\LogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +62,8 @@ Route::middleware(['adminauth'])->group(function () {
     Route::delete('/admindelete/{id}', [DataPemancarController::class, 'destroy']);
     Route::put('/adminupdate/{id}', [DataPemancarController::class, 'update']);
 
-    Route::get('/adminhistory', fn() => view('adminhistory'))->name('adminhistory');
+    Route::get('/adminhistory', [LogController::class, 'index'], fn() => view('adminhistory'))->name('histories');
+    Route::get('/adminhistory/{id}', [LogController::class, 'show'])->name('history.show');
+
+    Route::get('/pemancar/export', [DataPemancarController::class, 'exportCsv'])->name('pemancar.export');
 });

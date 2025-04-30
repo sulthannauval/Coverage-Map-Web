@@ -51,10 +51,13 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="/logout" class="sidebar-link">
-                    <i class="ri-logout-box-line"></i>
-                    <span>Logout</span>
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="sidebar-link" style="border: none; background: none;">
+                        <i class="ri-logout-box-line"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
             </div>
         </aside>
         <div class="main p-3">
