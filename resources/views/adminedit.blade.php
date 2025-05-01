@@ -51,12 +51,12 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <form action="{{ route('logout') }}" method="POST">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="sidebar-link" style="border: none; background: none;">
+                    <a href="#" class="sidebar-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="ri-logout-box-line"></i>
                         <span>Logout</span>
-                    </button>
+                    </a>
                 </form>
             </div>
         </aside>
@@ -65,6 +65,22 @@
                 <h1>
                     Home
                 </h1>
+                <br>
+                <div class="row align-items-center">
+                    <div class="col-6 align-items-center">
+                        <div class="box d-flex">
+                            <input type="search" placeholder="Search">
+                            <button id="search-btn" type="send">
+                                <i class="ri-search-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-4 pt-2 align-items-center">
+                        <button class="btn btn-primary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: 40px;">
+                            <i class="ri-filter-fill"></i>
+                        </button>
+                    </div>
+                </div>
                 <br>
             </div>
             <table class="table table-hover">

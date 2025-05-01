@@ -10,97 +10,139 @@
 }
 
 body {
+    background-color: blue;
+}
+
+.login-form {
+    position: relative;
+    min-height: 100vh;
+    z-index: 0;
     background: blue;
+    padding: 40px;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    align-items: center;
 }
 
-.wrapper {
-    max-width: 550px;
-    min-height: 700px;
-    margin: 80px auto;
-    padding: 40px 30px 30px 30px;
-    background-color: white;
-    border-radius: 15px;
-    /* box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff; */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.logo {
-    width: 80px;
-    margin: auto;
-    align-content: center;
-}
-
-.logo img {
-    width: 80%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 20%;
-    border-style: inherit;
-    /* box-shadow: 0px 0px 3px #5f5f5f,
-        0px 0px 0px 5px #ecf0f3,
-        8px 8px 15px #a7aaa7,
-        -8px -8px 15px #fff; */
-}
-
-.wrapper .name {
-    font-weight: 600;
-    font-size: 1.4rem;
-    letter-spacing: 1.3px;
-    padding-left: 10px;
-    color: #555;
-}
-
-.wrapper .form-field input {
-    width: 100%;
-    display: block;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.2rem;
-    color: #666;
-    padding: 10px 15px 10px 10px;
-    /* border: 1px solid red; */
-}
-
-.wrapper .form-field {
-    padding-left: 10px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-
-.wrapper .form-field .fas {
-    color: #555;
-}
-
-.wrapper .btn {
-    box-shadow: none;
-    width: 100%;
-    height: 40px;
-    background-color: blue;
+.login-form h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
     color: #fff;
-    border-radius: 25px;
-    /* box-shadow: 3px 3px 3px #b1b1b1,
-        -3px -3px 3px #fff; */
-    letter-spacing: 1.3px;
 }
 
-.wrapper .btn:hover {
-    background-color: blue;
+.login-form h2 {
+    line-height: 40px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: 500;
+    color: blue;
+    text-align: center;
 }
 
-.wrapper a {
+.login-form .mainlogin {
+    position: relative;
+    display: flex;
+    margin: 30px 0;
+}
+
+.content {
+    flex-basis: 50%;
+    padding: 3em 3em;
+    background: #fff;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.25);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.form-img {
+    flex-basis: 50%;
+    background-color: lightblue;
+    background-size: cover;
+    padding: 40px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: grid;
+    display: grid;
+}
+
+form-img .img {
+    width: 20%;
+}
+
+.btn,button,input {
+    border-radius: 35px;
+}
+
+.btn:hover,
+button:hover{
+    transition: 0.5s ease;
+}
+
+a {
     text-decoration: none;
-    font-size: 0.8rem;
-    color: blue;
 }
 
-.wrapper a:hover {
-    color: blue;
+.login-form form {
+    margin: 30px 0;
 }
 
-@media(max-width: 380px) {
-    .wrapper {
-        margin: 30px 20px;
-        padding: 40px 15px 15px 15px;
+.login-form input {
+    outline: none;
+    margin-bottom: 15px;
+    font-stretch: 16px;
+    color: #999;
+    text-align: left;
+    padding: 14px 20px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    background: lightcyan;
+    transition: 0.3 ease;
+}
+
+.login-form input:focus {
+    background: transparent;
+    border: 1px solid blue;
+}
+
+.login-form button{
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+    background-color: blue;
+    border: none;
+    padding: 14px 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+@media(max-width:736px) {
+    .login-form.mainlogin{
+        flex-direction: column;
+    }
+
+    .content {
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
+        flex-basis: 100%;
+    }
+
+    .login-form .form{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        
+    }
+
+    .form-img {
+        flex-basis: 0%;
+        display: none;
     }
 }

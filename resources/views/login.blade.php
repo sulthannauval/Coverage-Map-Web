@@ -11,41 +11,36 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="logo">
-            <img src="{{ asset('images/youtube-tv.png') }}" alt="">
-        </div>
-
-        <div class="text-center mt-4 name">
-            DigiTor
-        </div>
-
-        <!-- Menampilkan pesan error jika ada -->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+    <div class="login-form">
+        <h1>Login</h1>
+        <div class="container">
+            <div class="mainlogin">
+                <div class="content">
+                    <h2>Log In</h2>
+                    <form  method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <Input type="text" name="login" id="login" placeholder="Email or Username" required autofocus="">
+                        <Input type="password" name="password" id="pwd" placeholder="Password" requiredautofocus="">
+                            <button class="btn" type="submit">
+                                Login
+                            </button>
+                    </form>
+                    <!-- Menampilkan pesan error jika ada -->
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    <a href="#">Forgot Password</a>
+                </div>
+                <div class="form-img">
+                    <img src="{{ asset('images/radio.png') }}" alt="">
+                </div>
             </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}" class="p-3 mt-3">
-            @csrf
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input type="text" name="login" id="login" placeholder="Username atau Email">
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Password">
-            </div>
-            <button type="submit" class="btn mt-3">Login</button>
-        </form>
-
-        <div class="text-center fs-6">
-            <a href="#">Forget password?</a> or <a href="#">Sign up</a>
         </div>
     </div>
 </body>
