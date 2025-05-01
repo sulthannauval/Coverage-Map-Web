@@ -37,11 +37,19 @@ class DataPemancarController extends Controller
         ]);
 
         // Simpan ke database, tanpa pembaruan_terakhir (diisi otomatis oleh MySQL)
-        DataPemancar::create([
+        $pemancar = DataPemancar::create([
             'nama_pemancar' => $request->nama_pemancar,
             'provinsi' => $request->provinsi,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
+        ]);
+
+        // Simpan log
+        Log::create([
+            'id_pemancar' => $pemancar->id_pemancar,
+            'id_admin' => Auth::guard('admin')->id(), // id admin yang sedang login
+            'id_aksi' => 1,
+            'deskripsi_aksi' => $request->detail,
         ]);
 
         // Redirect kembali dengan pesan sukses

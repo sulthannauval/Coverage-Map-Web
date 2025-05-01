@@ -83,7 +83,7 @@
                     <p><br>Provinsi:</p>
                     <input type="text" name="provinsi" value="{{ old('provinsi', $pemancar->provinsi) }}" required>
 
-                    <p><br>Detail Log:</p>
+                    <p><br>Detail:</p>
                     <input type="textarea" name="detail" required>
 
                     <div class="p-3 row">
