@@ -83,9 +83,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($pemancars as $pemancar)
+                    @foreach($pemancars as $index => $pemancar)
                     <tr>
-                        <td>{{ $pemancar->id_pemancar }}</td>
+                        <td>{{ ($pemancars->currentPage() - 1) * $pemancars->perPage() + $index + 1 }}</td>
                         <td>{{ $pemancar->nama_pemancar }}</td>
                         <td>{{ $pemancar->provinsi }}</td>
                         <td>{{ $pemancar->latitude }}</td>

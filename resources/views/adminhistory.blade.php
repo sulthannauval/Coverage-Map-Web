@@ -81,9 +81,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($logs as $log)
+                    @foreach($logs as $index => $log)
                     <tr>
-                        <td>{{ $log->id_log }}</td>
+                        <td>{{ ($logs->currentPage() - 1) * $logs->perPage() + $index + 1 }}</td>
                         <td>{{ $log->admin->nama }}</td>
                         <td>{{ $log->aksi->nama_aksi }}</td>
                         <td>{{ $log->tanggal}}</td>

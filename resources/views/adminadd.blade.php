@@ -99,6 +99,9 @@
 
                     <p class="mt-3">Longitude:</p>
                     <input type="text" name="longitude" class="form-control" placeholder="000.000000" required>
+
+                    <p><br>Detail:</p>
+                    <input type="textarea" class="form-control" name="detail" required>
                 </div>
 
                 <div class="p-3 row">

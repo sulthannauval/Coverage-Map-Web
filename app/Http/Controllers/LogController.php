@@ -12,7 +12,8 @@ class LogController extends Controller
     {
         // Mengambil semua data log
         $logs = Log::with(['admin', 'aksi', 'pemancar', 'upload']) // Load relasi jika diperlukan
-                    ->paginate(10); // Paginate log jika datanya banyak
+            ->orderBy('tanggal', 'desc')
+            ->paginate(10); // Paginate log jika datanya banyak
 
         return view('adminhistory', compact('logs')); // Tampilkan view log dengan data logs
     }
@@ -22,7 +23,7 @@ class LogController extends Controller
     {
         // Menampilkan detail log berdasarkan ID
         $log = Log::with(['admin', 'aksi', 'pemancar', 'upload']) // Load relasi jika diperlukan
-                    ->findOrFail($id); // Cari log berdasarkan ID
+            ->findOrFail($id); // Cari log berdasarkan ID
 
         return view('adminhistoryshow', compact('log')); // Tampilkan detail log
     }
