@@ -51,12 +51,12 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <form action="{{ route('logout') }}" method="POST">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="sidebar-link" style="border: none; background: none;">
+                    <a href="#" class="sidebar-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="ri-logout-box-line"></i>
                         <span>Logout</span>
-                    </button>
+                    </a>
                 </form>
             </div>
         </aside>

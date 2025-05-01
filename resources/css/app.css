@@ -55,6 +55,7 @@ body {
     top: 10px;
     left: 100px;
     display: flex;
+    justify-content: center;
     cursor: pointer;
     padding: 10px 20px;
     background: #fff;
