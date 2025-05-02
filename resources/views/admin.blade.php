@@ -70,8 +70,8 @@
             <div class="row align-items-center">
                 <div class="col-6 align-items-center">
                     <div class="box d-flex">
-                        <input type="search" placeholder="Search">
-                        <button id="search-btn" type="send">
+                        <input type="search" id="live-search" placeholder="Search">
+                        <button id="search-btn" type="button">
                             <i class="ri-search-line"></i>
                         </button>
                     </div>
@@ -98,7 +98,7 @@
                         <td>Longitude</td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="search-results">
                     @foreach($pemancars as $index => $pemancar)
                     <tr>
                         <td>{{ ($pemancars->currentPage() - 1) * $pemancars->perPage() + $index + 1 }}</td>
@@ -111,8 +111,8 @@
                 </tbody>
             </table>
             <!-- Pagination Links -->
-            <div class="d-flex justify-content-center">
-                {{ $pemancars->links() }}
+            <div id="pagination-links" class="d-flex justify-content-center">
+                {!! $pemancars->links() !!}
             </div>
         </div>
     </div>
