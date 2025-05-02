@@ -10,11 +10,11 @@
         rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    @vite(['public/css/admin.css', 'public/js/admin.js'])
+    @vite(['public/css/adminedit.css', 'public/js/adminedit.js'])
 </head>
 
 <body>
-    <div class="wrapper">
+<div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
                 <button id="toggle-btn" type="button">
@@ -63,70 +63,40 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Home
+                    Upload KMZ
                 </h1>
                 <br>
-                <div class="row align-items-center">
+            </div>
+            <div class="row align-items-center">
                     <div class="col-6 align-items-center">
                         <div class="box d-flex">
-                            <input type="search" placeholder="Search">
-                            <button id="search-btn" type="send">
-                                <i class="ri-search-line"></i>
-                            </button>
+                            <div class="mb-3">
+                                <label for="formFileLg" class="form-label">Upload Here</label>
+                                <input type="text" name="description" class="form-control form-control-lg" type="file" id="formFileLg">
+                             </div>
                         </div>
                     </div>
-                    <div class="col-1 pt-2 pr-0 align-items-center" style="width: 5% !important;">
-                        <button class="btn btn-primary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: 40px;">
-                            <i class="ri-filter-fill"></i>
-                        </button>
+                </div>
+                <div class="row">
+                    <div class="col-6 pt-2 pr-0 align-items-center">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-1 pt-2 align-items-center">
-                        <a href="admineditupload" class="btn btn-secondary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: auto;">
-                            Upload KMZ
+                        <a href="admineditupload" class="btn btn-primary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: auto;">
+                            Upload
+                        </a>
+                    </div>
+                    <div class="col-1 pt-2">
+                        <a href="adminedit" class="btn btn-secondary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: auto;">
+                            Batal
                         </a>
                     </div>
                 </div>
-                <br>
-            </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <td>No.</td>
-                        <td>Nama Pemancar</td>
-                        <td>Provinsi</td>
-                        <td>Latitude</td>
-                        <td>Longitude</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($pemancars as $index => $pemancar)
-                    <tr>
-                        <td>{{ ($pemancars->currentPage() - 1) * $pemancars->perPage() + $index + 1 }}</td>
-                        <td>{{ $pemancar->nama_pemancar }}</td>
-                        <td>{{ $pemancar->provinsi }}</td>
-                        <td>{{ $pemancar->latitude }}</td>
-                        <td>{{ $pemancar->longitude }}</td>
-                        <td>
-                            <!-- Edit button linking to edit route with ID -->
-                            <a href="{{ url('/adminediting/' . $pemancar->id_pemancar) }}" class="btn btn-primary btn-sm">Edit</a>
-
-                            <!-- Delete button inside a form -->
-                            <form action="{{ url('/admindelete/' . $pemancar->id_pemancar) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apa kamu yakin ingin menghapusnya?');">
-                                    Delete
-                                </button>
-                            </form>
-                        </td>
-                        @endforeach
-                    </tr>
-                </tbody>
-            </table>
-            <!-- Pagination Links -->
-            <div class="d-flex justify-content-center">
-                {{ $pemancars->links() }}
-            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -134,5 +104,3 @@
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
-
-</html>

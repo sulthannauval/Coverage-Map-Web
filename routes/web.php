@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataPemancarController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\KMZController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,7 @@ Route::middleware(['adminauth'])->group(function () {
     Route::get('/adminediting/{id}', [DataPemancarController::class, 'edit']);
     Route::delete('/admindelete/{id}', [DataPemancarController::class, 'destroy']);
     Route::put('/adminupdate/{id}', [DataPemancarController::class, 'update']);
+    Route::get('/admineditupload', [KMZController::class, 'view']);
 
     Route::get('/adminhistory', [LogController::class, 'index'], fn() => view('adminhistory'))->name('histories');
     Route::get('/adminhistory/{id}', [LogController::class, 'show'])->name('history.show');

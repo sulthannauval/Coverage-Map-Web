@@ -124,6 +124,12 @@ a {
     transition: 0.3s ease;
 }
 
+.login-form backbutton {
+    color: black;
+    width: 50px;
+    height: 1000px;
+}
+
 @media(max-width:736px) {
     .login-form.mainlogin{
         flex-direction: column;
