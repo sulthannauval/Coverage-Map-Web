@@ -151,4 +151,23 @@ class DataPemancarController extends Controller
 
         return response()->stream($callback, 200, $headers);
     }
+
+    public function liveSearch(Request $request)
+    {
+        $query = $request->input('query');
+
+        $pemancars = DataPemancar::when($query, function ($q) use ($query) {
+            $q->where('nama_pemancar', 'like', "%{$query}%")
+                ->orWhere('provinsi', 'like', "%{$query}%");
+        })->paginate(10);
+
+        // Kembalikan data dan link pagination
+        return response()->json([
+            'data' => $pemancars->items(),
+            'links' => (string) $pemancars->withQueryString()->links(),
+            'current_page' => $pemancars->currentPage(),
+            'per_page' => $pemancars->perPage(),
+        ]);
+        
+    }
 }

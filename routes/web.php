@@ -51,6 +51,7 @@ Route::post('/logout', function () {
 
 Route::middleware(['adminauth'])->group(function () {
     Route::get('/admin', [DataPemancarController::class, 'index'])->name('admin');
+    Route::get('/adminsearch', [DataPemancarController::class, 'liveSearch'])->name('admin.search');
 
     Route::get('/adminadd', [DataPemancarController::class, 'create'])->name('pemancar.create');
     Route::post('/adminadd', [DataPemancarController::class, 'store'])->name('pemancar.store');
