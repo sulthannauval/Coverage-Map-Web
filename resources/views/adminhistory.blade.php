@@ -61,9 +61,6 @@
             </div>
         </aside>
         <div class="main p-3">
-            @extends('layouts.app') <!-- Pastikan ini menggunakan layout utama yang benar -->
-
-            @section('content')
             <div class="text-center">
                 <h1>
                     History
@@ -98,7 +95,6 @@
             <div class="d-flex justify-content-center">
                 {{ $logs->links() }}
             </div>
-            @endsection
         </div>
 
     </div>
