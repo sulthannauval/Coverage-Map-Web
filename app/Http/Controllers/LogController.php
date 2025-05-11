@@ -24,7 +24,7 @@ class LogController extends Controller
         // Menampilkan detail log berdasarkan ID
         $log = Log::with(['admin', 'aksi', 'pemancar', 'upload']) // Load relasi jika diperlukan
             ->findOrFail($id); // Cari log berdasarkan ID
-
+            
         return view('adminhistoryshow', compact('log')); // Tampilkan detail log
     }
 }

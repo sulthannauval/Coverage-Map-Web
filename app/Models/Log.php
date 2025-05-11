@@ -36,6 +36,6 @@ class Log extends Model
 
     public function upload()
     {
-        return $this->belongsTo(UploadKmz::class, 'id_upload');
+        return $this->belongsTo(UploadKMZ::class, 'id_upload');
     }
 }

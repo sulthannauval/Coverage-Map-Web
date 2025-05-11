@@ -64,6 +64,7 @@ Route::middleware(['adminauth'])->group(function () {
     Route::delete('/admindelete/{id}', [DataPemancarController::class, 'destroy']);
     Route::put('/adminupdate/{id}', [DataPemancarController::class, 'update']);
     Route::get('/admineditupload', [KMZController::class, 'view']);
+    Route::post('/admineditupload', [KMZController::class, 'upload'])->name('admineditupload.upload');
 
     Route::get('/adminhistory', [LogController::class, 'index'], fn() => view('adminhistory'))->name('histories');
     Route::get('/adminhistory/{id}', [LogController::class, 'show'])->name('history.show');

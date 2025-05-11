@@ -14,6 +14,7 @@ class UploadKMZ extends Model
     protected $fillable = [
         'nama_file',
         'path_file',
+        'id_admin',
         'tanggal_upload',
     ];
 
