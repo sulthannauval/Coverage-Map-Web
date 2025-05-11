@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div class="wrapper">
+    <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
                 <button id="toggle-btn" type="button">
@@ -67,36 +67,41 @@
                 </h1>
                 <br>
             </div>
-            <div class="row align-items-center">
-                    <div class="col-6 align-items-center">
-                        <div class="box d-flex">
-                            <div class="mb-3">
-                                <label for="formFileLg" class="form-label">Upload Here</label>
-                                <input type="text" name="description" class="form-control form-control-lg" type="file" id="formFileLg">
-                             </div>
-                        </div>
-                    </div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+            <form action="{{ route('admineditupload.upload') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label for="formFileLg" class="form-label">Upload Here</label>
+                    <input class="form-control form-control-lg" type="file" id="formFileLg" name="file" required accept=".kmz" />
+
                 </div>
-                <div class="row">
-                    <div class="col-6 pt-2 pr-0 align-items-center">
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
-                <div class="row">
-                    <div class="col-1 pt-2 align-items-center">
-                        <a href="admineditupload" class="btn btn-primary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: auto;">
-                            Upload
-                        </a>
-                    </div>
-                    <div class="col-1 pt-2">
-                        <a href="adminedit" class="btn btn-secondary btn-sm d-flex justify-content-center mb-3 align-items-center" style="height: 40px; width: auto;">
-                            Batal
-                        </a>
-                    </div>
-                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm" style="height: 40px; width: auto;">
+                    Upload
+                </button>
+                <a href="{{ url('adminedit') }}" class="btn btn-secondary btn-sm" style="height: 40px; width: auto;">
+                    Batal
+                </a>
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
