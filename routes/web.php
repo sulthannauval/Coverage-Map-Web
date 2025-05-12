@@ -30,6 +30,14 @@ Route::get('/map', function () {
     return view('map');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/tutorial', function () {
+    return view('tutorial');
+});
+
 Route::get('/login', function () {
     /* if (session('id_admin')) {
         // Jika session id_admin ada, langsung redirect ke admin

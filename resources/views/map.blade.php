@@ -49,13 +49,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/tutorial" class="sidebar-link">
                         <i class="ri-question-fill"></i>
                         <span>Help</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/contact" class="sidebar-link">
                         <i class="ri-phone-fill"></i>
                         <span>Contact</span>
                     </a>
