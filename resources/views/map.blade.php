@@ -69,6 +69,7 @@
             </div>
         </aside>
     </div>
+    <br>
     <div class="box d-flex">
         <input type="search" placeholder="Search">
         <button id="search-btn" type="send">
@@ -132,7 +133,9 @@
             })
             .addTo(mymap);
 
-            L.Control.geocoder().addTo(mymap);
+            L.Control.geocoder({
+                position: 'bottomright'
+            }).addTo(mymap);
 
         // Mengikat pop-up ke setiap layer di KML
         kmlLayer.on('ready', function() {
