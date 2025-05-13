@@ -27,12 +27,14 @@
 <body>
     <!-- Peta -->
     <div id="mapid"></div>
+
     <!-- Legend -->
     @if ($legendUrl)
     <div id="legend" style="position: absolute; top: 70px; left: 100px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 1000;">
         <img src="{{ $legendUrl }}" alt="Legend" style="max-width: 200px;">
     </div>
     @endif
+
     <!-- NIH NAVBAR YEE -->
     <div class="wrapper">
         <aside id="sidebar">
@@ -89,73 +91,10 @@
     <!-- Leaflet Search Button -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
-    <!-- <script>
-        // Inisiasi peta dengan posisi di Indonesia
-        var mymap = L.map('mapid').setView([-2.5489, 118.0149], 6); // Koordinat Indonesia
-
-        // Inisiasi custom icon
-        var customIcon = L.icon({
-            iconUrl: '/kml/site.png', // path ikon
-            iconSize: [22, 22], // Ukuran ikon
-            iconAnchor: [11, 22], // Posisi anchor
-            popupAnchor: [0, -16] // Posisi popup
-        });
-
-        // Tambahkan citra satelit dari ESRI World Imagery
-        L.esri.basemapLayer('Imagery').addTo(mymap);
-        // Tambahkan label opsional untuk nama kota atau jalan
-        L.esri.basemapLayer('ImageryLabels').addTo(mymap);
-
-        // Ubah posisi tombol zoom ke kanan bawah
-        mymap.zoomControl.setPosition('bottomright');
-
-        // Tambahkan file KML dari direktori public/kml
-        var kmlLayer = omnivore.kml('/kml/Coverage-Jawa.kml')
-            .on('ready', function() {
-                // mymap.fitBounds(kmlLayer.getBounds());
-
-                // Menambahkan ikon khusus pada setiap marker di KML
-                kmlLayer.eachLayer(function(layer) {
-                    // Set ikon custom pada marker jika layer adalah marker
-                    if (layer instanceof L.Marker) {
-                        layer.setIcon(customIcon);
-                    }
-
-                    // Menambahkan gambar overlay setelah KML dimuat
-                    var bounds = [
-                        [-5.00339434502215, 115.224609375],
-                        [-9.275622176792099, 105.029296875]
-                    ]; // Sesuaikan dengan koordinat gambar
-                    L.imageOverlay('/kml/coverage.png', bounds).addTo(mymap); // Tambahkan overlay gambar
-
-                    // Bind popup dengan nama dan deskripsi dari KML
-                    var name = layer.feature.properties.name || "No Name";
-                    var description = layer.feature.properties.description || "No Description";
-                    layer.bindPopup('<b>' + name + '</b><br>' + description);
-                });
-            })
-            .on('error', function(e) {
-                console.error("Error loading KML: ", e);
-            })
-            .addTo(mymap);
-
-            L.Control.geocoder({
-                position: 'bottomright'
-            }).addTo(mymap);
-
-        // Mengikat pop-up ke setiap layer di KML
-        kmlLayer.on('ready', function() {
-            kmlLayer.eachLayer(function(layer) {
-                var name = layer.feature.properties.name || "No Name";
-                var description = layer.feature.properties.description || "No Description";
-                layer.bindPopup('<b>' + name + '</b><br>' + description);
-            });
-        });
-    </script> -->
     <script>
         const map = L.map('mapid').setView([-2.5, 120], 5);
 
-        // ✅ Hanya gunakan layer citra satelit dari ESRI
+        // Hanya gunakan layer citra satelit dari ESRI
         L.esri.basemapLayer('Imagery').addTo(map);
         L.esri.basemapLayer('ImageryLabels').addTo(map); // opsional, untuk label
 
@@ -164,7 +103,7 @@
         }).addTo(map);
 
 
-        // ✅ Load KML dari URL dinamis (dari database)
+        // Load KML dari URL dinamis (dari database)
         omnivore.kml(<?php echo json_encode($kmlUrl); ?>)
             .on('ready', function() {
                 this.eachLayer(function(layer) {
@@ -179,7 +118,7 @@
             })
             .addTo(map);
 
-        // ✅ Tambahkan imageOverlay dari <GroundOverlay>
+        // Tambahkan imageOverlay dari <GroundOverlay>
         const overlays = <?php echo json_encode($overlays); ?>;
         overlays.forEach(item => {
             L.imageOverlay(item.url, item.bounds, {
