@@ -6,6 +6,7 @@ use App\Http\Controllers\DataPemancarController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\KMZController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,53 @@ Route::get('/', function () {
 });
 
 Route::get('/map', function () {
-    return view('map');
+    // Ambil entri terakhir
+    $latest = DB::table('upload_kmz')->orderByDesc('id_upload')->first();
+
+    if (!$latest || !file_exists(public_path($latest->path_file . '/doc.kml'))) {
+        abort(404, 'KML file not found.');
+    }
+
+    $pathPrefix = $latest->path_file;
+    $kmlPath = public_path($pathPrefix . '/doc.kml');
+
+    // Load & parse file KML
+    $kml = simplexml_load_file($kmlPath);
+    $kml->registerXPathNamespace('kml', 'http://www.opengis.net/kml/2.2');
+
+    // GroundOverlay
+    $overlays = $kml->xpath('//kml:GroundOverlay');
+    $images = [];
+
+    foreach ($overlays as $overlay) {
+        $icon = (string) $overlay->Icon->href;
+        $north = (float) $overlay->LatLonBox->north;
+        $south = (float) $overlay->LatLonBox->south;
+        $east = (float) $overlay->LatLonBox->east;
+        $west = (float) $overlay->LatLonBox->west;
+
+        $images[] = [
+            'url' => '/' . $pathPrefix . '/' . ltrim($icon, '/'),
+            'bounds' => [
+                [$south, $west],
+                [$north, $east]
+            ]
+        ];
+    }
+
+    // ScreenOverlay (legend)
+    $legendOverlay = $kml->xpath('//kml:ScreenOverlay[1]');
+    $legendUrl = null;
+    if (!empty($legendOverlay)) {
+        $legendHref = (string) $legendOverlay[0]->Icon->href;
+        $legendUrl = '/' . $pathPrefix . '/' . ltrim($legendHref, '/');
+    }
+
+    return view('map', [
+        'overlays' => $images,
+        'legendUrl' => $legendUrl,
+        'kmlUrl' => '/' . $pathPrefix . '/doc.kml'
+    ]);
 });
 
 Route::get('/contact', function () {
