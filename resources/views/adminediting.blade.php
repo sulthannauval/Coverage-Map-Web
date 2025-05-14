@@ -2,26 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-        rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Data</title>
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+        crossorigin="anonymous">
+
+    <!-- Custom CSS & JS -->
     @vite(['public/css/adminedit.css', 'public/js/adminedit.js'])
 </head>
 
 <body>
     <div class="wrapper">
+        <!-- Sidebar -->
         <aside id="sidebar">
             <div class="d-flex">
                 <button id="toggle-btn" type="button">
                     <i class="ri-menu-fill"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Menu</Menu></a>
+                    <a href="#">Menu</a>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -60,47 +67,66 @@
                 </form>
             </div>
         </aside>
+
+        <!-- Main Content -->
         <div class="main p-3">
             <div class="text-center">
-                <h1>
-                    Edit
-                </h1>
+                <h1>Edit Pemancar</h1>
             </div>
+
             <div class="col-sm-10">
                 <form action="{{ url('/adminupdate/' . $pemancar->id_pemancar) }}" method="POST">
                     @csrf
                     @method('PUT')
 
-                    <p>Nama Pemancar:</p>
-                    <input type="text" name="nama_pemancar" value="{{ old('nama_pemancar', $pemancar->nama_pemancar) }}" required>
+                    <div class="mb-3">
+                        <label for="nama_pemancar" class="form-label">Nama Pemancar:</label>
+                        <input type="text" name="nama_pemancar" class="form-control"
+                            value="{{ old('nama_pemancar', $pemancar->nama_pemancar) }}" required>
+                    </div>
 
-                    <p><br>Longitude:</p>
-                    <input type="text" name="longitude" value="{{ old('longitude', $pemancar->longitude) }}" placeholder="000.000000" required>
+                    <div class="mb-3">
+                        <label for="longitude" class="form-label">Longitude:</label>
+                        <input type="text" name="longitude" class="form-control"
+                            value="{{ old('longitude', $pemancar->longitude) }}" placeholder="000.000000" required>
+                    </div>
 
-                    <p><br>Latitude:</p>
-                    <input type="text" name="latitude" value="{{ old('latitude', $pemancar->latitude) }}" placeholder="-0.000000" required>
+                    <div class="mb-3">
+                        <label for="latitude" class="form-label">Latitude:</label>
+                        <input type="text" name="latitude" class="form-control"
+                            value="{{ old('latitude', $pemancar->latitude) }}" placeholder="-0.000000" required>
+                    </div>
 
-                    <p><br>Provinsi:</p>
-                    <input type="text" name="provinsi" value="{{ old('provinsi', $pemancar->provinsi) }}" required>
+                    <div class="mb-3">
+                        <label for="provinsi" class="form-label">Provinsi:</label>
+                        <input type="text" name="provinsi" class="form-control"
+                            value="{{ old('provinsi', $pemancar->provinsi) }}" required>
+                    </div>
 
-                    <p><br>Detail:</p>
-                    <input type="textarea" name="detail" required>
+                    <div class="mb-3">
+                        <label for="detail" class="form-label">Detail:</label>
+                        <textarea name="detail" class="form-control" rows="4" required>{{ old('detail', $pemancar->detail) }}</textarea>
+                    </div>
 
-                    <div class="p-3 row">
+                    <div class="row px-3">
                         <div class="col-sm-2">
-                            <button type="submit" class="btnsubmit">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                        <div class="col-sm-2 mt-3 mt-lg-0 mt-md-0 ml-sm-5 mt-sm-0">
-                            <a href="/adminedit" class="btnbatal btn btn-secondary">Batal</a>
+                        <div class="col-sm-2 mt-3 mt-sm-0">
+                            <a href="/adminedit" class="btn btn-secondary">Batal</a>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+
+    <!-- Custom Script -->
     <script src="script.js"></script>
 </body>
 
