@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact</title>
+    <title>Login</title>
 
     <!-- Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
@@ -16,7 +16,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    @vite('resources/css/styles.css')
 </head>
 
 <body>
