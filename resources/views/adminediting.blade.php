@@ -46,7 +46,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link-select">
-                        <i class="ri-edit-box-line"></i>
+                        <i class="ri-edit-box-fill"></i>
                         <span>Edit</span>
                     </a>
                 </li>
@@ -54,6 +54,18 @@
                     <a href="/adminhistory" class="sidebar-link">
                         <i class="ri-history-fill"></i>
                         <span>History</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/adminreport" class="sidebar-link">
+                        <i class="ri-error-warning-fill"></i>
+                        <span>Report</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/adminadminmanager" class="sidebar-link">
+                        <i class="ri-user-add-fill"></i>
+                        <span>Admin Manager</span>
                     </a>
                 </li>
             </ul>

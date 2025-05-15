@@ -34,7 +34,7 @@
 
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="/admin" class="sidebar-link-select">
+                    <a href="/admin" class="sidebar-link">
                         <i class="ri-home-fill"></i>
                         <span>Home</span>
                     </a>
@@ -52,13 +52,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/adminhistory" class="sidebar-link-select">
+                    <a href="/adminhistory" class="sidebar-link">
                         <i class="ri-history-fill"></i>
                         <span>History</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/adminreport" class="sidebar-link">
+                    <a href="/adminreport" class="sidebar-link-select">
                         <i class="ri-error-warning-fill"></i>
                         <span>Report</span>
                     </a>
@@ -88,68 +88,21 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Detail Log
+                    Report
                 </h1>
                 <br>
             </div>
-            <table class="table table-hover">
-                <tr>
-                    <th>ID Log</th>
-                    <td>{{ $log->id_log }}</td>
-                </tr>
-                <tr>
-                    <th>Tanggal</th>
-                    <td>{{ $log->tanggal }}</td>
-                </tr>
-                <tr>
-                    <th>Admin</th>
-                    <td>{{ $log->admin->nama }}</td>
-                </tr>
-                <tr>
-                    <th>Aksi</th>
-                    <td>{{ $log->aksi->nama_aksi }}</td>
-                </tr>
-                <!-- Menambahkan kondisi berdasarkan id_aksi -->
-                @if($log->aksi->id_aksi == 1 || $log->aksi->id_aksi == 2)
-                <tr>
-                    <th>Nama Pemancar</th>
-                    <td>{{ $log->pemancar->nama_pemancar }}</td>
-                </tr>
-                <tr>
-                    <th>Provinsi</th>
-                    <td>{{ $log->pemancar->provinsi }}</td>
-                </tr>
-                <tr>
-                    <th>Latitude</th>
-                    <td>{{ $log->pemancar->latitude }}</td>
-                </tr>
-                <tr>
-                    <th>Longitude</th>
-                    <td>{{ $log->pemancar->longitude }}</td>
-                </tr>
-                @elseif($log->aksi->id_aksi == 3)
-                <tr>
-                    <th>Nama File</th>
-                    <td>{{ $log->upload->nama_file }}</td>
-                </tr>
-                <tr>
-                    <th>Path File</th>
-                    <td>{{ $log->upload->path_file }}</td>
-                </tr>
-                @endif
-                <tr>
-                    <th>Deskripsi Aksi</th>
-                    <td>{{ $log->deskripsi_aksi }}</td>
-                </tr>
-            </table>
-
-            <a href="{{ route('histories') }}" class="btn btn-primary">Kembali ke Daftar Log</a>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+
+    </div>
+    
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
-        <script src="script.js"></script>
-    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -33,7 +33,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="/map" class="sidebar-link-select">
+                    <a href="/map" class="sidebar-link">
                         <i class="ri-home-fill"></i>
                         <span>Home</span>
                     </a>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/contact" class="sidebar-link">
+                    <a href="/contact" class="sidebar-link-select">
                         <i class="ri-phone-fill"></i>
                         <span>Contact</span>
                     </a>
@@ -79,20 +79,12 @@
                 <div class="col-md-4">
                   <label for="validationDefaultUsername" class="form-label">Email</label>
                   <div class="input-group">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
                     <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
                   </div>
                 </div>
-                <div class="col-md-5">
-                  <label for="validationDefault03" class="form-label">Kota</label>
-                  <input type="text" class="form-control" id="validationDefault03" value="Bandung" required>
-                </div>
-                <div class="col-md-3">
-                  <label for="validationDefault04" class="form-label">Area</label>
-                  <select class="form-select" id="validationDefault04" required>
-                    <option selected disabled value="">Pilih...</option>
-                    <option>...</option>
-                  </select>
+                <div class="col-md-8">
+                  <label for="validationDefault03" class="form-label">Nomor Telepon</label>
+                  <input type="text" class="form-control" id="validationDefault03" required>
                 </div>
                 <div class="col-md-8">
                     <label for="floatingTextarea2" class="form-floating mb-2">Komentar</label>
@@ -107,6 +99,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script src="{{ asset('/js/contact.js') }}"></script>
+    <script src="script.js"></script>
 </body>
 </html>
