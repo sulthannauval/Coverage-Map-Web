@@ -16,7 +16,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS & JS -->
-        @vite(['public/css/tutorial.css', 'public/js/tutorial.js'])
+    @vite(['public/css/tutorial.css', 'public/js/tutorial.js'])
 </head>
 
 <body>
@@ -33,7 +33,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="/map" class="sidebar-link-select">
+                    <a href="/map" class="sidebar-link">
                         <i class="ri-home-fill"></i>
                         <span>Home</span>
                     </a>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/tutorial" class="sidebar-link">
+                    <a href="/tutorial" class="sidebar-link-select">
                         <i class="ri-question-fill"></i>
                         <span>Help</span>
                     </a>
@@ -69,7 +69,6 @@
             <div class="text-center">
                 <h1>Help</h1>
                 <br />
-                <br />
                 <h1 style="font-size: 40px">How To Use It</h1>
                 <div
                     class="embed-responsive embed-responsive-21by9"
@@ -79,13 +78,13 @@
                         width="1200"
                         height="600"
                         class="embed-responsive-item"
-                        src="https://www.youtube.com/embed/GtL1huin9EE?si=UyO2lQ6rAfyymbbx"
+                        src="https://www.youtube.com/embed/eiFotYXqaR0?si=8YFX2sa8yzb0lGqe"
                         allow="autoplay;"
                         allowfullscreen
                     ></iframe>
                 </div>
             </div>
-            <br>
+            <!-- <br>
             <div class="text-start">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
@@ -200,13 +199,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script src="{{ asset('/js/tutorial.js') }}"></script>
+    <script src="script.js"></script>
     </body>
 </html>

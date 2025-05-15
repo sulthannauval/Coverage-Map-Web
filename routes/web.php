@@ -125,4 +125,12 @@ Route::middleware(['adminauth'])->group(function () {
     Route::get('/adminhistory/{id}', [LogController::class, 'show'])->name('history.show');
 
     Route::get('/pemancar/export', [DataPemancarController::class, 'exportCsv'])->name('pemancar.export');
+
+    Route::get('/adminreport', function () {
+        return view('adminreport');
+    });
+
+    Route::get('/adminadminmanager', function () {
+        return view('adminadminmanager');
+    });
 });

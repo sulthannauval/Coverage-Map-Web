@@ -141,3 +141,37 @@ a.sidebar-link:hover{
     height: 40px;
     border-style: none;
 }
+
+#search-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem;
+}
+
+.box {
+    top: 10px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    height: 40px;
+    width: 100%;
+    z-index: 5000;
+    align-items: center;
+    outline: 1px solid black;
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); */
+}
+
+.box input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+    display: flex;
+}

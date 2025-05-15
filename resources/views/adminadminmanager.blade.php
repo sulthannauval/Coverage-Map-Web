@@ -34,7 +34,7 @@
 
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="/admin" class="sidebar-link-select">
+                    <a href="/admin" class="sidebar-link">
                         <i class="ri-home-fill"></i>
                         <span>Home</span>
                     </a>
@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/adminhistory" class="sidebar-link-select">
+                    <a href="/adminhistory" class="sidebar-link">
                         <i class="ri-history-fill"></i>
                         <span>History</span>
                     </a>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/adminadminmanager" class="sidebar-link">
+                    <a href="/adminadminmanager" class="sidebar-link-select">
                         <i class="ri-user-add-fill"></i>
                         <span>Admin Manager</span>
                     </a>
@@ -88,68 +88,42 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Detail Log
+                    Admin Manager
                 </h1>
                 <br>
             </div>
-            <table class="table table-hover">
-                <tr>
-                    <th>ID Log</th>
-                    <td>{{ $log->id_log }}</td>
-                </tr>
-                <tr>
-                    <th>Tanggal</th>
-                    <td>{{ $log->tanggal }}</td>
-                </tr>
-                <tr>
-                    <th>Admin</th>
-                    <td>{{ $log->admin->nama }}</td>
-                </tr>
-                <tr>
-                    <th>Aksi</th>
-                    <td>{{ $log->aksi->nama_aksi }}</td>
-                </tr>
-                <!-- Menambahkan kondisi berdasarkan id_aksi -->
-                @if($log->aksi->id_aksi == 1 || $log->aksi->id_aksi == 2)
-                <tr>
-                    <th>Nama Pemancar</th>
-                    <td>{{ $log->pemancar->nama_pemancar }}</td>
-                </tr>
-                <tr>
-                    <th>Provinsi</th>
-                    <td>{{ $log->pemancar->provinsi }}</td>
-                </tr>
-                <tr>
-                    <th>Latitude</th>
-                    <td>{{ $log->pemancar->latitude }}</td>
-                </tr>
-                <tr>
-                    <th>Longitude</th>
-                    <td>{{ $log->pemancar->longitude }}</td>
-                </tr>
-                @elseif($log->aksi->id_aksi == 3)
-                <tr>
-                    <th>Nama File</th>
-                    <td>{{ $log->upload->nama_file }}</td>
-                </tr>
-                <tr>
-                    <th>Path File</th>
-                    <td>{{ $log->upload->path_file }}</td>
-                </tr>
-                @endif
-                <tr>
-                    <th>Deskripsi Aksi</th>
-                    <td>{{ $log->deskripsi_aksi }}</td>
-                </tr>
-            </table>
+            <div class="m-3">
+                <label class="form-label">Nama:</label>
+                <input type="text" name="nama" class="form-control" required />
 
-            <a href="{{ route('histories') }}" class="btn btn-primary">Kembali ke Daftar Log</a>
+                <label class="form-label mt-3">Email:</label>
+                <input type="email" name="email" class="form-control" placeholder="alfi@gmail.com" required />
+
+                <label class="form-label mt-3">Username:</label>
+                <input type="text" name="username" class="form-control" placeholder="" required />
+
+                <label class="form-label mt-3">password:</label>
+                <input type="text" name="password" class="form-control" placeholder="" required />
+            </div>
+            <div class="row px-3">
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        <div class="col-sm-2 mt-3 mt-sm-0">
+                            <a href="/adminedit" class="btn btn-secondary">Batal</a>
+                        </div>
+                    </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+
+    </div>
+    
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
-        <script src="script.js"></script>
-    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 </body>
 
 </html>
