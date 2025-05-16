@@ -104,6 +104,10 @@ Route::get('/tutorial', function () {
     return view('tutorial');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::get('/login', function () {
     /* if (session('id_admin')) {
         // Jika session id_admin ada, langsung redirect ke admin
