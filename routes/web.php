@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\KMZController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SinyalController;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -90,6 +91,8 @@ Route::get('/map', function () {
         'kmlUrl' => '/' . $pathPrefix . '/doc.kml'
     ]);
 });
+
+Route::get('/api/nearest-signal', [SinyalController::class, 'nearest']);
 
 Route::get('/contact', function () {
     return view('contact');

@@ -20,21 +20,14 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
 
+    <!-- Leaflet Locate Control -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+
     <!-- VITE (css & js) -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/map.css'])
 </head>
 
 <body>
-    <!-- Peta -->
-    <div id="mapid"></div>
-
-    <!-- Legend -->
-    @if ($legendUrl)
-    <div id="legend" style="position: absolute; top: 70px; left: 100px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 1000;">
-        <img src="{{ $legendUrl }}" alt="Legend" style="max-width: 200px;">
-    </div>
-    @endif
-
     <!-- Sidebar Navigation -->
     <div class="wrapper">
         <aside id="sidebar">
@@ -43,7 +36,7 @@
                     <i class="ri-menu-fill"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Menu</Menu></a>
+                    <a href="#">Menu</a>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -80,13 +73,16 @@
             </div>
         </aside>
     </div>
+    
+    <!-- Peta -->
+    <div id="mapid"></div>
 
-    <div class="box d-flex">
-        <input type="search-bar" placeholder="Search">
-        <button id="search-btn" type="send">
-            <i class="ri-search-line"></i>
-        </button>
+    <!-- Legend -->
+    @if ($legendUrl)
+    <div id="legend" style="position: absolute; bottom: 20px; left: 85px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 1000;">
+        <img src="{{ $legendUrl }}" alt="Legend" style="max-width: 200px;">
     </div>
+    @endif
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -96,19 +92,84 @@
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
     <!-- Leaflet Search Button -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- Leaflet Locate Control -->
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
 
     <script>
-        const map = L.map('mapid').setView([-2.5, 120], 5);
+        const map = L.map('mapid', {
+            zoomControl: false  // Menonaktifkan kontrol zoom default
+        }).setView([-2.5, 120], 5);
 
-        // Hanya gunakan layer citra satelit dari ESRI
+        // Layer citra satelit dari ESRI
         L.esri.basemapLayer('Imagery').addTo(map);
-        L.esri.basemapLayer('ImageryLabels').addTo(map); // opsional, untuk label
+        L.esri.basemapLayer('ImageryLabels').addTo(map);
 
-        L.Control.geocoder({
-            position: 'bottomright'
+        // Menambahkan kontrol zoom kustom di posisi kanan bawah
+        L.control.zoom({
+            position: 'bottomright'  // Mengatur posisi ke kanan bawah
         }).addTo(map);
 
-        // Definisikan ikon kustom (jika ada)
+        // Tambahkan geocoder
+        const geocoder = L.Control.geocoder({
+                position: 'topleft',
+                defaultMarkGeocode: false
+            })
+            .on('markgeocode', function(e) {
+                const latlng = e.geocode.center;
+                map.setView(latlng, 13);
+                fetchAndShowSignal(latlng, map);
+            })
+            .addTo(map);
+
+        // Tambahkan tombol GPS (LocateControl)
+        L.control.locate({
+            position: 'topleft', // Sama seperti geocoder
+            strings: {
+                title: "Temukan Lokasi Saya"
+            },
+            drawCircle: true,
+            keepCurrentZoomLevel: true,
+            showPopup: false
+        }).addTo(map);
+
+        // Tangkap lokasi pengguna
+        map.on('locationfound', function(e) {
+            const latlng = L.latLng(e.latitude, e.longitude);
+            map.setView(latlng, 13);
+            fetchAndShowSignal(latlng, map);
+        });
+
+        // Tangkap klik di peta
+        map.on('click', function(e) {
+            fetchAndShowSignal(e.latlng, map);
+        });
+
+        // Fungsi umum untuk ambil dan tampilkan data sinyal
+        function fetchAndShowSignal(latlng, map) {
+            fetch(`/api/nearest-signal?lat=${latlng.lat}&lng=${latlng.lng}`)
+                .then(response => response.json())
+                .then(data => {
+                    const popup = L.popup().setLatLng(latlng);
+                    if (data.success) {
+                        popup.setContent(`
+                        <strong>Informasi Fieldstrength</strong><br>
+                        Pemancar Referensi: ${data.result.nama_pemancar}<br>
+                        Kekuatan Sinyal: ${data.result.strength}<br>
+                        <!-- Jarak: ${data.result.distance.toFixed(2)} km -->
+                    `);
+                    } else {
+                        popup.setContent("Tidak ada data sinyal ditemukan.");
+                    }
+                    popup.openOn(map);
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Terjadi kesalahan saat mengambil data. Silahkan refresh halaman.");
+                });
+        }
+
+        // Definisikan ikon kustom
         const customIcon = L.icon({
             iconUrl: <?php echo json_encode($iconsUsed); ?>,
             iconSize: [16, 16],
@@ -116,7 +177,7 @@
             popupAnchor: [0, -8]
         });
 
-        // Load KML dari URL dinamis (dari database)
+        // Load KML dinamis
         omnivore.kml(<?php echo json_encode($kmlUrl); ?>)
             .on('ready', function() {
                 this.eachLayer(function(layer) {
@@ -146,5 +207,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 </body>
+
 
 </html>
