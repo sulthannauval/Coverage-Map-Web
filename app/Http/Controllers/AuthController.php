@@ -31,7 +31,7 @@ class AuthController extends Controller
         // ]);
 
 
-        if ($admin && md5($password) == $admin->password) {
+        if ($admin && Hash::check($password, $admin->password)) {
             // Jika password cocok
             /* session([
                 'id_admin' => $admin->id_admin,

@@ -71,27 +71,34 @@
                     Contact
                 </h1>
             </div>
-            <form class="row g-3">
+            <!-- Pesan sukses -->
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+            <form class="row g-3" method="POST" action="{{ route('feedback.store') }}">
+                @csrf
                 <div class="col-md-4">
-                  <label for="validationDefault01" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="validationDefault01" value="John" required>
+                    <label for="validationDefault01" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="nama" id="validationDefault01" placeholder="John" required>
                 </div>
                 <div class="col-md-4">
-                  <label for="validationDefaultUsername" class="form-label">Email</label>
-                  <div class="input-group">
-                    <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
-                  </div>
+                    <label for="validationDefaultUsername" class="form-label">Email</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" name="email" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                    </div>
                 </div>
                 <div class="col-md-8">
-                  <label for="validationDefault03" class="form-label">Nomor Telepon</label>
-                  <input type="text" class="form-control" id="validationDefault03" required>
+                    <label for="validationDefault03" class="form-label">Nomor Telepon</label>
+                    <input type="text" class="form-control" name="telepon" id="validationDefault03" required>
                 </div>
                 <div class="col-md-8">
                     <label for="floatingTextarea2" class="form-floating mb-2">Komentar</label>
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="komentar" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
         </div>
@@ -101,4 +108,5 @@
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

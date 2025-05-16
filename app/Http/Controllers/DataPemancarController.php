@@ -91,15 +91,19 @@ class DataPemancarController extends Controller
     public function destroy($id)
     {
         $pemancar = DataPemancar::findOrFail($id);
-        $pemancar->delete();
+
+        // Hapus semua log terkait pemancar ini terlebih dahulu
+        Log::where('id_pemancar', $id)->delete();
 
         Log::create([
-            'id_pemancar' => $pemancar->id_pemancar,
+            'id_pemancar' => null,
             'id_admin' => Auth::guard('admin')->id(), // id admin yang sedang login
             'id_aksi' => 5,
             'deskripsi_aksi' => 'Menghapus Data Pemancar ' . $pemancar->nama_pemancar,
             'id_upload' => null
         ]);
+
+        $pemancar->delete();
 
         return redirect()->route('admin')->with('success', 'Data berhasil dihapus.');
     }
@@ -123,12 +127,9 @@ class DataPemancarController extends Controller
         $callback = function () use ($pemancars, $columns) {
             $file = fopen('php://output', 'w');
 
-            // Tulis header kolom dengan pemisah titik koma
-            fputcsv($file, $columns, ';', "\0");
+            fputcsv($file, $columns, ';');
 
-            // Tulis data baris
             foreach ($pemancars as $pemancar) {
-                // Buat array data sesuai urutan kolom
                 $row = [
                     $pemancar->id_pemancar,
                     $pemancar->nama_pemancar,
@@ -136,15 +137,15 @@ class DataPemancarController extends Controller
                     $pemancar->latitude,
                     $pemancar->longitude
                 ];
-                // Gunakan fputcsv dengan delimiter ';' dan enclosure kosong agar tidak ada tanda "
-                fputcsv($file, $row, ';', "\0");
+                fputcsv($file, $row, ';');
             }
 
             fclose($file);
         };
 
+        // Simpan log
         Log::create([
-            'id_admin' => Auth::guard('admin')->id(), // id admin yang sedang login
+            'id_admin' => Auth::guard('admin')->id(),
             'id_aksi' => 4,
             'deskripsi_aksi' => 'Mengunduh Data Pemancar Pada ' . now()->format('Y-m-d H:i:s'),
         ]);
@@ -168,6 +169,5 @@ class DataPemancarController extends Controller
             'current_page' => $pemancars->currentPage(),
             'per_page' => $pemancars->perPage(),
         ]);
-        
     }
 }

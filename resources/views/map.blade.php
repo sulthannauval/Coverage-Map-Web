@@ -7,13 +7,13 @@
     <title>Pemetaan Jangkauan TV Digital Indonesia</title>
 
     <!-- Filter -->
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@4.0.1/dist/css/multi-select-tag.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-        rel="stylesheet" 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
+        rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
         crossorigin="anonymous">
 
     <!-- Leaflet CSS -->
@@ -80,7 +80,7 @@
             </div>
         </aside>
     </div>
-    
+
     <div class="box d-flex">
         <input type="search-bar" placeholder="Search">
         <button id="search-btn" type="send">
@@ -105,13 +105,24 @@
         L.esri.basemapLayer('ImageryLabels').addTo(map); // opsional, untuk label
 
         L.Control.geocoder({
-            position: 'bottomright' 
+            position: 'bottomright'
         }).addTo(map);
+
+        // Definisikan ikon kustom (jika ada)
+        const customIcon = L.icon({
+            iconUrl: <?php echo json_encode($iconsUsed); ?>,
+            iconSize: [16, 16],
+            iconAnchor: [8, 8],
+            popupAnchor: [0, -8]
+        });
 
         // Load KML dari URL dinamis (dari database)
         omnivore.kml(<?php echo json_encode($kmlUrl); ?>)
             .on('ready', function() {
                 this.eachLayer(function(layer) {
+                    if (layer instanceof L.Marker) {
+                        layer.setIcon(customIcon);
+                    }
                     if (layer.feature && layer.feature.properties) {
                         const name = layer.feature.properties.name || '';
                         const desc = layer.feature.properties.description || '';
@@ -135,4 +146,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 </body>
+
 </html>

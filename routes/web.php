@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataPemancarController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\KMZController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -70,9 +72,21 @@ Route::get('/map', function () {
         $legendUrl = '/' . $pathPrefix . '/' . ltrim($legendHref, '/');
     }
 
+    // Ambil ikon pertama (jika ada)
+    $icons = $kml->xpath('//kml:Style[kml:IconStyle][1]');
+    $iconsUsed = null;
+
+    if (!empty($icons)) {
+        $iconNode = $icons[0];
+        $href = (string) $iconNode->IconStyle->Icon->href;
+        $iconsUsed = '/' . $pathPrefix . '/' . ltrim($href, '/');
+    }
+
+
     return view('map', [
         'overlays' => $images,
         'legendUrl' => $legendUrl,
+        'iconsUsed' => $iconsUsed,
         'kmlUrl' => '/' . $pathPrefix . '/doc.kml'
     ]);
 });
@@ -80,6 +94,8 @@ Route::get('/map', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::post('/contact', [FeedbackController::class, 'store'])->name('feedback.store');
+
 
 Route::get('/tutorial', function () {
     return view('tutorial');
@@ -126,11 +142,11 @@ Route::middleware(['adminauth'])->group(function () {
 
     Route::get('/pemancar/export', [DataPemancarController::class, 'exportCsv'])->name('pemancar.export');
 
-    Route::get('/adminreport', function () {
-        return view('adminreport');
-    });
+    Route::get('/adminreport', [FeedbackController::class, 'index'])->name('adminreport');
+    Route::get('/adminreport/{id}', [FeedbackController::class, 'show'])->name('adminreport.show');
 
     Route::get('/adminadminmanager', function () {
         return view('adminadminmanager');
     });
+    Route::post('/admineditupload', [AdminController::class, 'store'])->name('admin.store');
 });

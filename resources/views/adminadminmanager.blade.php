@@ -92,35 +92,43 @@
                 </h1>
                 <br>
             </div>
-            <div class="m-3">
-                <label class="form-label">Nama:</label>
-                <input type="text" name="nama" class="form-control" required />
-
-                <label class="form-label mt-3">Email:</label>
-                <input type="email" name="email" class="form-control" placeholder="alfi@gmail.com" required />
-
-                <label class="form-label mt-3">Username:</label>
-                <input type="text" name="username" class="form-control" placeholder="" required />
-
-                <label class="form-label mt-3">password:</label>
-                <input type="text" name="password" class="form-control" placeholder="" required />
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
             </div>
-            <div class="row px-3">
-                        <div class="col-sm-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                        <div class="col-sm-2 mt-3 mt-sm-0">
-                            <a href="/adminedit" class="btn btn-secondary">Batal</a>
-                        </div>
+            @endif
+            <form method="POST" action="{{ route('admin.store') }}">
+                @csrf
+                <div class="m-3">
+                    <label class="form-label">Nama:</label>
+                    <input type="text" name="nama" class="form-control" required />
+
+                    <label class="form-label mt-3">Email:</label>
+                    <input type="email" name="email" class="form-control" placeholder="john@gmail.com" required />
+
+                    <label class="form-label mt-3">Username:</label>
+                    <input type="text" name="username" class="form-control" placeholder="" required />
+
+                    <label class="form-label mt-3">password:</label>
+                    <input type="password" name="password" class="form-control" placeholder="" required />
+                </div>
+                <div class="row px-3">
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                    <div class="col-sm-2 mt-3 mt-sm-0">
+                        <a href="/adminedit" class="btn btn-secondary">Batal</a>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>
-    
+
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 
     <!-- Custom Script -->
     <script src="script.js"></script>
