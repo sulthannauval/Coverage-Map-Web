@@ -20,8 +20,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
 
+    <!-- Leaflet Locate Control -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+
     <!-- VITE (css & js) -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'public/css/map.css'])
 </head>
 
 <body>
@@ -96,19 +99,77 @@
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
     <!-- Leaflet Search Button -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- Leaflet Locate Control -->
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
 
     <script>
         const map = L.map('mapid').setView([-2.5, 120], 5);
 
-        // Hanya gunakan layer citra satelit dari ESRI
+        // Layer citra satelit dari ESRI
         L.esri.basemapLayer('Imagery').addTo(map);
-        L.esri.basemapLayer('ImageryLabels').addTo(map); // opsional, untuk label
+        L.esri.basemapLayer('ImageryLabels').addTo(map);
 
-        L.Control.geocoder({
-            position: 'bottomright'
+        // Tambahkan geocoder
+        const geocoder = L.Control.geocoder({
+                position: 'bottomright',
+                defaultMarkGeocode: false
+            })
+            .on('markgeocode', function(e) {
+                const latlng = e.geocode.center;
+                map.setView(latlng, 13);
+                fetchAndShowSignal(latlng, map);
+            })
+            .addTo(map);
+
+        // Tambahkan tombol GPS (LocateControl)
+        L.control.locate({
+            position: 'bottomright', // Sama seperti geocoder
+            strings: {
+                title: "Temukan Lokasi Saya"
+            },
+            drawCircle: true,
+            keepCurrentZoomLevel: true,
+            showPopup: false
         }).addTo(map);
 
-        // Definisikan ikon kustom (jika ada)
+        // Tangkap lokasi pengguna
+        map.on('locationfound', function(e) {
+            const latlng = L.latLng(e.latitude, e.longitude);
+            map.setView(latlng, 13);
+            fetchAndShowSignal(latlng, map);
+        });
+
+        // Tangkap klik di peta
+        map.on('click', function(e) {
+            fetchAndShowSignal(e.latlng, map);
+        });
+
+        // Fungsi umum untuk ambil dan tampilkan data sinyal
+        function fetchAndShowSignal(latlng, map) {
+            fetch(`/api/nearest-signal?lat=${latlng.lat}&lng=${latlng.lng}`)
+                .then(response => response.json())
+                .then(data => {
+                    const popup = L.popup().setLatLng(latlng);
+                    if (data.success) {
+                        popup.setContent(`
+                        <strong>Informasi Fieldstrength</strong><br>
+                        Pemancar Referensi: ${data.result.nama_pemancar}<br>
+                        Kekuatan Sinyal: ${data.result.strength}<br>
+                        <!-- Jarak: ${data.result.distance.toFixed(2)} km -->
+                    `);
+                    } else {
+                        popup.setContent("Tidak ada data sinyal ditemukan.");
+                    }
+                    popup.openOn(map);
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Terjadi kesalahan saat mengambil data. Silahkan refresh halaman.");
+                });
+        }
+
+        // Definisikan ikon kustom
         const customIcon = L.icon({
             iconUrl: <?php echo json_encode($iconsUsed); ?>,
             iconSize: [16, 16],
@@ -116,7 +177,7 @@
             popupAnchor: [0, -8]
         });
 
-        // Load KML dari URL dinamis (dari database)
+        // Load KML dinamis
         omnivore.kml(<?php echo json_encode($kmlUrl); ?>)
             .on('ready', function() {
                 this.eachLayer(function(layer) {

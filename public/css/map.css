@@ -1,0 +1,7 @@
+.leaflet-bottom.leaflet-right {
+    display: flex;
+    flex-direction: row-reverse; /* GPS di kanan, Search di kiri */
+    gap: 8px;
+    align-items: flex-end;
+    padding: 10px;
+}
