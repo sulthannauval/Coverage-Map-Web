@@ -151,5 +151,5 @@ Route::middleware(['adminauth'])->group(function () {
     Route::get('/adminadminmanager', function () {
         return view('adminadminmanager');
     });
-    Route::post('/admineditupload', [AdminController::class, 'store'])->name('admin.store');
+    Route::post('/adminadminmanager', [AdminController::class, 'store'])->name('admin.store');
 });
