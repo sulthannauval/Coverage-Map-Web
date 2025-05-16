@@ -11,22 +11,22 @@ class SinyalController extends Controller
     {
         $lat = $request->lat;
         $lng = $request->lng;
-        $maxDistance = 5; // km, bisa kamu ubah sesuai cakupan prediksi kamu
+        $maxDistance = 5; // km
 
-        // Subquery: hitung jarak dan ambil 5 titik terdekat
+        // Subquery menggunakan rumus Haversine
         $sub = DB::table('kekuatan_sinyal')
-            ->selectRaw('*, 
-            (6371 * acos(
-                cos(radians(?)) * cos(radians(latitude)) 
-                * cos(radians(longitude) - radians(?)) 
-                + sin(radians(?)) * sin(radians(latitude))
-            )) AS distance', [$lat, $lng, $lat])
+            ->selectRaw('*, (
+                6371 * 2 * ASIN(SQRT(
+                    POWER(SIN(RADIANS(latitude - ?)/2), 2) +
+                    COS(RADIANS(?)) * COS(RADIANS(latitude)) *
+                    POWER(SIN(RADIANS(longitude - ?)/2), 2)
+                ))
+            ) AS distance', [$lat, $lat, $lng])
             ->orderBy('distance')
             ->limit(5);
 
-        // Dari 5 terdekat, ambil yang sinyalnya paling kuat
         $nearestStrongest = DB::table(DB::raw("({$sub->toSql()}) as sub"))
-            ->mergeBindings($sub) // penting: bawa binding dari subquery
+            ->mergeBindings($sub)
             ->where('distance', '<=', $maxDistance)
             ->orderByDesc('strength')
             ->first();
@@ -41,3 +41,4 @@ class SinyalController extends Controller
         }
     }
 }
+

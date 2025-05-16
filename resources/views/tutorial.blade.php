@@ -16,7 +16,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS & JS -->
-    @vite(['public/css/tutorial.css', 'public/js/tutorial.js'])
+    @vite(['resources/css/tutorial.css', 'resources/js/tutorial.js'])
 </head>
 
 <body>

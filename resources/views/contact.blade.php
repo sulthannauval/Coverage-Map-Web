@@ -16,7 +16,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS & JS -->
-    @vite(['public/css/contact.css', 'public/js/contact.js'])
+    @vite(['resources/css/contact.css', 'resources/js/contact.js'])
 </head>
 
 <body>

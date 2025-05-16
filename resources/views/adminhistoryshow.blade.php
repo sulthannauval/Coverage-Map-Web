@@ -16,7 +16,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS & JS -->
-    @vite(['public/css/adminhistory.css', 'public/js/adminhistory.js'])
+    @vite(['resources/css/adminhistory.css', 'resources/js/adminhistory.js'])
 </head>
 
 <body>

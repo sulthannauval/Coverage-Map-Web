@@ -24,20 +24,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
 
     <!-- VITE (css & js) -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'public/css/map.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/map.css'])
 </head>
 
 <body>
-    <!-- Peta -->
-    <div id="mapid"></div>
-
-    <!-- Legend -->
-    @if ($legendUrl)
-    <div id="legend" style="position: absolute; top: 70px; left: 100px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 1000;">
-        <img src="{{ $legendUrl }}" alt="Legend" style="max-width: 200px;">
-    </div>
-    @endif
-
     <!-- Sidebar Navigation -->
     <div class="wrapper">
         <aside id="sidebar">
@@ -46,7 +36,7 @@
                     <i class="ri-menu-fill"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Menu</Menu></a>
+                    <a href="#">Menu</a>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -83,13 +73,16 @@
             </div>
         </aside>
     </div>
+    
+    <!-- Peta -->
+    <div id="mapid"></div>
 
-    <div class="box d-flex">
-        <input type="search-bar" placeholder="Search">
-        <button id="search-btn" type="send">
-            <i class="ri-search-line"></i>
-        </button>
+    <!-- Legend -->
+    @if ($legendUrl)
+    <div id="legend" style="position: absolute; bottom: 20px; left: 85px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 1000;">
+        <img src="{{ $legendUrl }}" alt="Legend" style="max-width: 200px;">
     </div>
+    @endif
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -104,15 +97,22 @@
 
 
     <script>
-        const map = L.map('mapid').setView([-2.5, 120], 5);
+        const map = L.map('mapid', {
+            zoomControl: false  // Menonaktifkan kontrol zoom default
+        }).setView([-2.5, 120], 5);
 
         // Layer citra satelit dari ESRI
         L.esri.basemapLayer('Imagery').addTo(map);
         L.esri.basemapLayer('ImageryLabels').addTo(map);
 
+        // Menambahkan kontrol zoom kustom di posisi kanan bawah
+        L.control.zoom({
+            position: 'bottomright'  // Mengatur posisi ke kanan bawah
+        }).addTo(map);
+
         // Tambahkan geocoder
         const geocoder = L.Control.geocoder({
-                position: 'bottomright',
+                position: 'topleft',
                 defaultMarkGeocode: false
             })
             .on('markgeocode', function(e) {
@@ -124,7 +124,7 @@
 
         // Tambahkan tombol GPS (LocateControl)
         L.control.locate({
-            position: 'bottomright', // Sama seperti geocoder
+            position: 'topleft', // Sama seperti geocoder
             strings: {
                 title: "Temukan Lokasi Saya"
             },
@@ -207,5 +207,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 </body>
+
 
 </html>
