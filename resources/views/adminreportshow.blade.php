@@ -88,51 +88,44 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Report
+                    Detail Log
                 </h1>
                 <br>
             </div>
             <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <td>No.</td>
-                        <td>Nama</td>
-                        <td>Email</td>
-                        <td>Telepon</td>
-                        <td>Tanggal</td>
-                        <td>Detail</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($feedbacks as $index => $feedback)
-                    <tr>
-                        <td>{{ ($feedbacks->currentPage() - 1) * $feedbacks->perPage() + $index + 1 }}</td>
-                        <td>{{ $feedback->nama }}</td>
-                        <td>{{ $feedback->email }}</td>
-                        <td>{{ $feedback->telepon}}</td>
-                        <td>{{ $feedback->tanggal}}</td>
-                        <td>
-                            <a href="{{ route('adminreport.show', $feedback->id_feedback) }}" class="btn btn-info btn-sm">View</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
+                <tr>
+                    <th>ID Log</th>
+                    <td>{{ $feedback->id_feedback }}</td>
+                </tr>
+                <tr>
+                    <th>Tanggal</th>
+                    <td>{{ $feedback->tanggal }}</td>
+                </tr>
+                <tr>
+                    <th>Nama</th>
+                    <td>{{ $feedback->nama }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ $feedback->email }}</td>
+                </tr>
+                <tr>
+                    <th>Nomor Telepon</th>
+                    <td>{{ $feedback->telepon }}</td>
+                </tr>
+                <tr>
+                    <th>Komentar</th>
+                    <td>{{ $feedback->komentar }}</td>
+                </tr>
             </table>
-            <!-- Pagination Links -->
-            <div class="d-flex justify-content-center">
-                {{ $feedbacks->links() }}
-            </div>
-        </div>
 
-    </div>
-    
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            <a href="{{ route('adminreport') }}" class="btn btn-primary">Kembali ke Daftar Log</a>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
-
-    <!-- Custom Script -->
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+    </div>
 </body>
 
 </html>
