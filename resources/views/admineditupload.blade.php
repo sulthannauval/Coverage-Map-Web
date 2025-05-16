@@ -120,20 +120,22 @@
                     <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-sm" style="height: 40px; width: auto;">
-                    Upload
-                </button>
-                <a href="{{ url('adminedit') }}" class="btn btn-secondary btn-sm" style="height: 40px; width: auto;">
-                    Batal
-                </a>
+                <div class="p-3 row">
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                    <div class="col-sm-2 mt-3 mt-sm-0">
+                        <a href="/adminedit" class="btn btn-secondary">Batal</a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-    
+
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 
     <!-- Custom Script -->
     <script src="script.js"></script>

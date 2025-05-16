@@ -79,7 +79,7 @@
 
     <!-- Legend -->
     @if ($legendUrl)
-    <div id="legend" style="position: absolute; bottom: 20px; left: 85px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 1000;">
+    <div id="legend" style="position: absolute; bottom: 20px; left: 85px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: 500;">
         <img src="{{ $legendUrl }}" alt="Legend" style="max-width: 200px;">
     </div>
     @endif
