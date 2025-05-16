@@ -9,7 +9,9 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        $feedbacks = Feedback::paginate(10);
+        $feedbacks = Feedback::orderBy("tanggal","desc")->paginate(10);
+            
+
         return view('adminreport', compact('feedbacks'));
     }
 

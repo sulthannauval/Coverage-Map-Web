@@ -88,7 +88,7 @@
         <div class="main p-3">
             <div class="text-center">
                 <h1>
-                    Detail Log
+                    Detail Report
                 </h1>
                 <br>
             </div>
