@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/about" class="sidebar-link">
                         <i class="ri-information-fill"></i>
                         <span>About</span>
                     </a>
